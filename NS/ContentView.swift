@@ -7,8 +7,8 @@ struct ContentView: View {
     
     struct LoginResponse: Codable {
         let token: String
-        let firstName: String
-        let lastName: String
+        let first_name: String
+        let last_name: String
         let role: String
     }
     
@@ -84,7 +84,7 @@ struct ContentView: View {
                                 // Обработка успешного входа - например, сохранение токена в хранилище
                                 // Или переход на следующий экран после успешной авторизации
                             case .failure(let error):
-                                print("Ошибка входа: \(error.localizedDescription)")
+                                debugPrint(error)
                                 // Обработка ошибки при входе
                                 // Можно показать пользователю сообщение об ошибке
                             }
@@ -173,6 +173,7 @@ struct ContentView: View {
         task.resume() // Запуск выполнения запроса.
     }
 }
+
 
 #Preview {
     ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
