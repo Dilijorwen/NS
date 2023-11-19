@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    
     @State private var login = ""
     @State private var password = ""
     @State private var isSecure = true
@@ -14,6 +16,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack{
+            Image("Path2")
             VStack{
                 HStack{
                     Text("Вход")
@@ -22,7 +25,7 @@ struct ContentView: View {
                                 .weight(.bold)
                         )
                         .multilineTextAlignment(.center)
-                        .foregroundColor(Color(red: 0.19, green: 0.19, blue: 0.19))
+                        .foregroundColor(Color(red: 0.188, green: 0.19, blue: 0.19))
                 }.padding(.bottom, 45)
                 VStack {
                     
@@ -178,3 +181,10 @@ struct ContentView: View {
 #Preview {
     ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
+
+
+//Эта строка создает задачу (task) с использованием URLSession для выполнения запроса на основе предоставленного URLRequest.
+//URLSession.shared: Это общий экземпляр URLSession, который предоставляется по умолчанию для работы с сетевыми запросами. .shared указывает на общий экземпляр URLSession, который может использоваться в приложении.
+//dataTask(with:completion:): Это метод URLSession, который создает задачу (dataTask), которая выполняет запрос по указанному URLRequest.
+//request: Это объект типа URLRequest, который представляет собой запрос, содержащий информацию о методе запроса (например, GET, POST), URL, заголовках, теле запроса и других деталях.
+//{ data, response, error in ... }: Это замыкание (closure) или обработчик завершения, который будет вызван после завершения выполнения задачи. В нем предоставляются три опциональных параметра: data содержит данные ответа от сервера, response содержит объект URLResponse, представляющий ответ сервера, а error содержит ошибку, если что-то пошло не так во время выполнения запроса.
