@@ -1,10 +1,3 @@
-//
-//  NSApp.swift
-//  NS
-//
-//  Created by Даниил on 18.11.2023.
-//
-
 import SwiftUI
 
 @main
@@ -14,6 +7,7 @@ struct NSApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .preferredColorScheme(.light)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

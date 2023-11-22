@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A52B58EA2B0DFD3C00176472 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B58E92B0DFD3C00176472 /* MainMenuView.swift */; };
+		A52B58EC2B0DFD6D00176472 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B58EB2B0DFD6D00176472 /* LogInView.swift */; };
 		A57195132B08D55500E4CB3F /* NSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195122B08D55500E4CB3F /* NSApp.swift */; };
 		A57195152B08D55500E4CB3F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195142B08D55500E4CB3F /* ContentView.swift */; };
 		A57195172B08D55700E4CB3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57195162B08D55700E4CB3F /* Assets.xcassets */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A52B58E92B0DFD3C00176472 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		A52B58EB2B0DFD6D00176472 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		A571950F2B08D55500E4CB3F /* NS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57195122B08D55500E4CB3F /* NSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSApp.swift; sourceTree = "<group>"; };
 		A57195142B08D55500E4CB3F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 			children = (
 				A57195122B08D55500E4CB3F /* NSApp.swift */,
 				A57195142B08D55500E4CB3F /* ContentView.swift */,
+				A52B58EB2B0DFD6D00176472 /* LogInView.swift */,
+				A52B58E92B0DFD3C00176472 /* MainMenuView.swift */,
 				A57195162B08D55700E4CB3F /* Assets.xcassets */,
 				A571951B2B08D55700E4CB3F /* Persistence.swift */,
 				A571951D2B08D55700E4CB3F /* NS.xcdatamodeld */,
@@ -263,6 +269,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A52B58EC2B0DFD6D00176472 /* LogInView.swift in Sources */,
+				A52B58EA2B0DFD3C00176472 /* MainMenuView.swift in Sources */,
 				A571951F2B08D55700E4CB3F /* NS.xcdatamodeld in Sources */,
 				A571951C2B08D55700E4CB3F /* Persistence.swift in Sources */,
 				A57195152B08D55500E4CB3F /* ContentView.swift in Sources */,
