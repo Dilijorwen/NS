@@ -18,6 +18,12 @@
 		A57195292B08D55800E4CB3F /* NSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195282B08D55800E4CB3F /* NSTests.swift */; };
 		A57195332B08D55800E4CB3F /* NSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195322B08D55800E4CB3F /* NSUITests.swift */; };
 		A57195352B08D55800E4CB3F /* NSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195342B08D55800E4CB3F /* NSUITestsLaunchTests.swift */; };
+		A5ABBBE72B106B5300572327 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBE62B106B5300572327 /* TestView.swift */; };
+		A5ABBBE92B106F2800572327 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBE82B106F2800572327 /* PersonView.swift */; };
+		A5ABBBEB2B106F3900572327 /* BusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBEA2B106F3900572327 /* BusView.swift */; };
+		A5ABBBED2B106F6700572327 /* QR-CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */; };
+		A5BB01472B0F824C00E3F601 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB01462B0F824C00E3F601 /* Functions.swift */; };
+		A5BB01492B0F82A900E3F601 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB01482B0F82A900E3F601 /* Structs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +58,12 @@
 		A571952E2B08D55800E4CB3F /* NSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57195322B08D55800E4CB3F /* NSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUITests.swift; sourceTree = "<group>"; };
 		A57195342B08D55800E4CB3F /* NSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A5ABBBE62B106B5300572327 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		A5ABBBE82B106F2800572327 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		A5ABBBEA2B106F3900572327 /* BusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusView.swift; sourceTree = "<group>"; };
+		A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QR-CodeView.swift"; sourceTree = "<group>"; };
+		A5BB01462B0F824C00E3F601 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		A5BB01482B0F82A900E3F601 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +114,16 @@
 		A57195112B08D55500E4CB3F /* NS */ = {
 			isa = PBXGroup;
 			children = (
+				A5BB01462B0F824C00E3F601 /* Functions.swift */,
+				A5BB01482B0F82A900E3F601 /* Structs.swift */,
 				A57195122B08D55500E4CB3F /* NSApp.swift */,
 				A57195142B08D55500E4CB3F /* ContentView.swift */,
 				A52B58EB2B0DFD6D00176472 /* LogInView.swift */,
 				A52B58E92B0DFD3C00176472 /* MainMenuView.swift */,
+				A5ABBBE82B106F2800572327 /* PersonView.swift */,
+				A5ABBBEA2B106F3900572327 /* BusView.swift */,
+				A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */,
+				A5ABBBE62B106B5300572327 /* TestView.swift */,
 				A57195162B08D55700E4CB3F /* Assets.xcassets */,
 				A571951B2B08D55700E4CB3F /* Persistence.swift */,
 				A571951D2B08D55700E4CB3F /* NS.xcdatamodeld */,
@@ -269,11 +287,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5BB01492B0F82A900E3F601 /* Structs.swift in Sources */,
+				A5ABBBEB2B106F3900572327 /* BusView.swift in Sources */,
 				A52B58EC2B0DFD6D00176472 /* LogInView.swift in Sources */,
 				A52B58EA2B0DFD3C00176472 /* MainMenuView.swift in Sources */,
 				A571951F2B08D55700E4CB3F /* NS.xcdatamodeld in Sources */,
+				A5BB01472B0F824C00E3F601 /* Functions.swift in Sources */,
+				A5ABBBE92B106F2800572327 /* PersonView.swift in Sources */,
 				A571951C2B08D55700E4CB3F /* Persistence.swift in Sources */,
+				A5ABBBE72B106B5300572327 /* TestView.swift in Sources */,
 				A57195152B08D55500E4CB3F /* ContentView.swift in Sources */,
+				A5ABBBED2B106F6700572327 /* QR-CodeView.swift in Sources */,
 				A57195132B08D55500E4CB3F /* NSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
