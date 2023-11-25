@@ -1,11 +1,3 @@
-//
-//  QR-CodeView.swift
-//  NS
-//
-//  Created by Даниил on 24.11.2023.
-//
-
-import Foundation
 import SwiftUI
 
 struct QRCodeView: View {
@@ -21,3 +13,8 @@ struct QRCodeView: View {
     }
 }
 
+struct QRView_Previews: PreviewProvider {
+    static var previews: some View {
+        QRCodeView()
+    }
+}

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MainMenuView: View {
     
-    @State private var selectedTab = 1
+    @State private var selectedTab = 0
     
     var body: some View {
         
@@ -10,21 +10,18 @@ struct MainMenuView: View {
             PersonView()
                 .tabItem {
                     Image(systemName: "person")
-                    Text("Вкладка 1")
                 }
                 .tag(0) // тег, связанный с этим представлением
 
-            Text("Главный экран 2")
+            BusView()
                 .tabItem {
                     Image(systemName: "bus")
-                    Text("Вкладка 2")
                 }
                 .tag(1) // тег, связанный с этим представлением
 
-            Text("Главный экран 3")
+            QRCodeView()
                 .tabItem {
-                    Image(systemName: "bus")
-                    Text("Вкладка 2")
+                    Image(systemName: "qrcode.viewfinder")
                 }
                 .tag(2) // тег, связанный с этим представлением
         }
