@@ -8,22 +8,23 @@ struct MainMenuView: View {
         
         TabView(selection: $selectedTab) {
             PersonView()
+                .padding(.bottom, 50)
                 .tabItem {
                     Image(systemName: "person")
                 }
-                .tag(0) // тег, связанный с этим представлением
+                .tag(0)
 
             BusView()
                 .tabItem {
                     Image(systemName: "bus")
                 }
-                .tag(1) // тег, связанный с этим представлением
+                .tag(1)
 
             QRCodeView()
                 .tabItem {
                     Image(systemName: "qrcode.viewfinder")
                 }
-                .tag(2) // тег, связанный с этим представлением
+                .tag(2)
         }
     }
 }

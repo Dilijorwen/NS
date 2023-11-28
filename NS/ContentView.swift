@@ -1,15 +1,14 @@
-import SwiftUI
+import Foundation
 
-struct ContentView: View {
-    @State private var isLoggedIn = false // Переменная для отслеживания входа пользователя
+class UserSettings: ObservableObject{
     
-    var body: some View {
-        if isLoggedIn {
-            // Если пользователь вошел, показываем главное меню
-            MainMenuView()
-        } else {
-            // Если пользователь не вошел, показываем экран входа
-            LogInView(isLoggedIn: $isLoggedIn)
+    @Published var isLoggedIn: Bool {
+        didSet {
+            UserDefaults.standard.set(isLoggedIn, forKey: "login" )
         }
+    }
+    
+    init(){
+        self.isLoggedIn = false
     }
 }

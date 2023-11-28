@@ -1,11 +1,71 @@
 import SwiftUI
 
 struct PersonView: View {
-    @State var gg: String = "Даниил"
+    
+    @EnvironmentObject var settings: UserSettings
     
     var body: some View {
         VStack{
+            HStack(alignment: .center, spacing: 0) {
+                Text("Имя")
+                .font(
+                Font.custom("Montserrat", size: 24)
+                .weight(.medium)
+                )
+                .foregroundColor(Color(red: 0.19, green: 0.19, blue: 0.19))
+                .frame(width: 295, alignment: .topLeading)
+                .padding(.horizontal, 23)
+                .padding(.vertical, 21)
+                .frame(width: 341, height: 66, alignment: .center)
+                .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                .cornerRadius(30)
+            }.padding(.bottom, 18)
+                .padding(.top, 39)
             
+            HStack(alignment: .center, spacing: 0) {
+                Text("Фамилия")
+                .font(
+                Font.custom("Montserrat", size: 24)
+                .weight(.medium)
+                )
+                .foregroundColor(Color(red: 0.19, green: 0.19, blue: 0.19))
+                .frame(width: 295, alignment: .topLeading)
+                .padding(.horizontal, 23)
+                .padding(.vertical, 21)
+                .frame(width: 341, height: 66, alignment: .center)
+                .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                .cornerRadius(30)
+            }.padding(.bottom, 18)
+            
+            HStack(alignment: .center, spacing: 0) {
+                Text("Отчество")
+                .font(
+                Font.custom("Montserrat", size: 24)
+                .weight(.medium)
+                )
+                .foregroundColor(Color(red: 0.19, green: 0.19, blue: 0.19))
+                .frame(width: 295, alignment: .topLeading)
+                .padding(.horizontal, 23)
+                .padding(.vertical, 21)
+                .frame(width: 341, height: 66, alignment: .center)
+                .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                .cornerRadius(30)
+            }.padding(.bottom, 18)
+            
+            HStack(alignment: .center, spacing: 0) {
+                Text("Код")
+                .font(
+                Font.custom("Montserrat", size: 24)
+                .weight(.medium)
+                )
+                .foregroundColor(Color(red: 0.19, green: 0.19, blue: 0.19))
+                .frame(width: 295, alignment: .topLeading)
+                .padding(.horizontal, 23)
+                .padding(.vertical, 21)
+                .frame(width: 341, height: 66, alignment: .center)
+                .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                .cornerRadius(30)
+            }.padding(.bottom, 38)
             
             VStack {
                 HStack{
@@ -33,7 +93,7 @@ struct PersonView: View {
             
             HStack{
                 Button(action: {
-                    //
+                    settings.isLoggedIn = false
                 }) {
                     Text("Выйти")
                     .font(

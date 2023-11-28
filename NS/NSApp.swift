@@ -6,9 +6,9 @@ struct NSApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LogInView()
                 .preferredColorScheme(.light)
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(UserSettings())
         }
     }
 }
