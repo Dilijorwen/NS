@@ -70,7 +70,10 @@ struct PersonView: View {
             VStack {
                 HStack{
                     Button(action: {
-                        //
+                        /*
+                         Можно использовать log_in
+                         но тогда нужно сохранять логин и пароль
+                         */
                     }) {
                         Text("Обновить")
                         .font(
@@ -117,8 +120,8 @@ struct PersonView: View {
 }
 
 
-struct PersonView_Previews: PreviewProvider {
-    static var previews: some View {
-        PersonView()
-    }
-}
+//struct PersonView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PersonView()
+//    }
+//}

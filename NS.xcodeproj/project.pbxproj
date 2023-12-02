@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A51E8E422B1B651C00F54A0E /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E8E412B1B651C00F54A0E /* CoreDataExtensions.swift */; };
 		A52B58EA2B0DFD3C00176472 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B58E92B0DFD3C00176472 /* MainMenuView.swift */; };
 		A52B58EC2B0DFD6D00176472 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B58EB2B0DFD6D00176472 /* LogInView.swift */; };
+		A54BF5D72B19AD5600CF2213 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54BF5D62B19AD5600CF2213 /* User.swift */; };
 		A57195132B08D55500E4CB3F /* NSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195122B08D55500E4CB3F /* NSApp.swift */; };
 		A57195152B08D55500E4CB3F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195142B08D55500E4CB3F /* ContentView.swift */; };
 		A57195172B08D55700E4CB3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57195162B08D55700E4CB3F /* Assets.xcassets */; };
@@ -18,12 +20,11 @@
 		A57195292B08D55800E4CB3F /* NSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195282B08D55800E4CB3F /* NSTests.swift */; };
 		A57195332B08D55800E4CB3F /* NSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195322B08D55800E4CB3F /* NSUITests.swift */; };
 		A57195352B08D55800E4CB3F /* NSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195342B08D55800E4CB3F /* NSUITestsLaunchTests.swift */; };
-		A5ABBBE72B106B5300572327 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBE62B106B5300572327 /* TestView.swift */; };
 		A5ABBBE92B106F2800572327 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBE82B106F2800572327 /* PersonView.swift */; };
 		A5ABBBEB2B106F3900572327 /* BusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBEA2B106F3900572327 /* BusView.swift */; };
 		A5ABBBED2B106F6700572327 /* QR-CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */; };
-		A5BB01472B0F824C00E3F601 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB01462B0F824C00E3F601 /* Functions.swift */; };
-		A5BB01492B0F82A900E3F601 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB01482B0F82A900E3F601 /* Structs.swift */; };
+		A5BB01472B0F824C00E3F601 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB01462B0F824C00E3F601 /* Login.swift */; };
+		A5BB01492B0F82A900E3F601 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB01482B0F82A900E3F601 /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A51E8E412B1B651C00F54A0E /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
 		A52B58E92B0DFD3C00176472 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		A52B58EB2B0DFD6D00176472 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		A54BF5D62B19AD5600CF2213 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A571950F2B08D55500E4CB3F /* NS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57195122B08D55500E4CB3F /* NSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSApp.swift; sourceTree = "<group>"; };
 		A57195142B08D55500E4CB3F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,12 +61,11 @@
 		A571952E2B08D55800E4CB3F /* NSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57195322B08D55800E4CB3F /* NSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUITests.swift; sourceTree = "<group>"; };
 		A57195342B08D55800E4CB3F /* NSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		A5ABBBE62B106B5300572327 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		A5ABBBE82B106F2800572327 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		A5ABBBEA2B106F3900572327 /* BusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusView.swift; sourceTree = "<group>"; };
 		A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QR-CodeView.swift"; sourceTree = "<group>"; };
-		A5BB01462B0F824C00E3F601 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		A5BB01482B0F82A900E3F601 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		A5BB01462B0F824C00E3F601 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		A5BB01482B0F82A900E3F601 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A51E8E3E2B1B637C00F54A0E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A57195142B08D55500E4CB3F /* ContentView.swift */,
+				A52B58EB2B0DFD6D00176472 /* LogInView.swift */,
+				A52B58E92B0DFD3C00176472 /* MainMenuView.swift */,
+				A5ABBBE82B106F2800572327 /* PersonView.swift */,
+				A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */,
+				A5ABBBEA2B106F3900572327 /* BusView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A51E8E3F2B1B647800F54A0E /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				A571951B2B08D55700E4CB3F /* Persistence.swift */,
+				A51E8E412B1B651C00F54A0E /* CoreDataExtensions.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		A51E8E402B1B649200F54A0E /* Model CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				A54BF5D62B19AD5600CF2213 /* User.swift */,
+				A571951D2B08D55700E4CB3F /* NS.xcdatamodeld */,
+			);
+			path = "Model CoreData";
+			sourceTree = "<group>";
+		};
+		A51E8E432B1B653000F54A0E /* Model NS */ = {
+			isa = PBXGroup;
+			children = (
+				A5BB01482B0F82A900E3F601 /* UserInfo.swift */,
+			);
+			path = "Model NS";
+			sourceTree = "<group>";
+		};
+		A51E8E442B1B666600F54A0E /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				A5BB01462B0F824C00E3F601 /* Login.swift */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
 		A57195062B08D55500E4CB3F = {
 			isa = PBXGroup;
 			children = (
@@ -114,19 +163,13 @@
 		A57195112B08D55500E4CB3F /* NS */ = {
 			isa = PBXGroup;
 			children = (
-				A5BB01462B0F824C00E3F601 /* Functions.swift */,
-				A5BB01482B0F82A900E3F601 /* Structs.swift */,
 				A57195122B08D55500E4CB3F /* NSApp.swift */,
-				A57195142B08D55500E4CB3F /* ContentView.swift */,
-				A52B58EB2B0DFD6D00176472 /* LogInView.swift */,
-				A52B58E92B0DFD3C00176472 /* MainMenuView.swift */,
-				A5ABBBE82B106F2800572327 /* PersonView.swift */,
-				A5ABBBEA2B106F3900572327 /* BusView.swift */,
-				A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */,
-				A5ABBBE62B106B5300572327 /* TestView.swift */,
+				A51E8E3F2B1B647800F54A0E /* Persistence */,
+				A51E8E3E2B1B637C00F54A0E /* View */,
+				A51E8E442B1B666600F54A0E /* Functions */,
+				A51E8E402B1B649200F54A0E /* Model CoreData */,
+				A51E8E432B1B653000F54A0E /* Model NS */,
 				A57195162B08D55700E4CB3F /* Assets.xcassets */,
-				A571951B2B08D55700E4CB3F /* Persistence.swift */,
-				A571951D2B08D55700E4CB3F /* NS.xcdatamodeld */,
 				A57195182B08D55700E4CB3F /* Preview Content */,
 			);
 			path = NS;
@@ -287,15 +330,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5BB01492B0F82A900E3F601 /* Structs.swift in Sources */,
+				A5BB01492B0F82A900E3F601 /* UserInfo.swift in Sources */,
 				A5ABBBEB2B106F3900572327 /* BusView.swift in Sources */,
 				A52B58EC2B0DFD6D00176472 /* LogInView.swift in Sources */,
 				A52B58EA2B0DFD3C00176472 /* MainMenuView.swift in Sources */,
 				A571951F2B08D55700E4CB3F /* NS.xcdatamodeld in Sources */,
-				A5BB01472B0F824C00E3F601 /* Functions.swift in Sources */,
+				A5BB01472B0F824C00E3F601 /* Login.swift in Sources */,
 				A5ABBBE92B106F2800572327 /* PersonView.swift in Sources */,
+				A51E8E422B1B651C00F54A0E /* CoreDataExtensions.swift in Sources */,
+				A54BF5D72B19AD5600CF2213 /* User.swift in Sources */,
 				A571951C2B08D55700E4CB3F /* Persistence.swift in Sources */,
-				A5ABBBE72B106B5300572327 /* TestView.swift in Sources */,
 				A57195152B08D55500E4CB3F /* ContentView.swift in Sources */,
 				A5ABBBED2B106F6700572327 /* QR-CodeView.swift in Sources */,
 				A57195132B08D55500E4CB3F /* NSApp.swift in Sources */,

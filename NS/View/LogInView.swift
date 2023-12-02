@@ -81,14 +81,10 @@ struct LogInView: View {
                         
                         HStack{
                             Button(action: {
-                                log_in(login: login, password: password) { result in
+                                Login(login: login, password: password) { result in
                                     switch result {
                                     case .success(let loginResponse):
                                         settings.isLoggedIn = true
-//                                        UserDefaults.standard.set(loginResponse.data.id, forKey: "userID")
-//                                        UserDefaults.standard.set(loginResponse.data.token, forKey: "userToken")
-//                                        UserDefaults.standard.set(loginResponse.data.last_name, forKey: "userLastName")
-//                                        UserDefaults.standard.set(loginResponse.data.first_name, forKey: "userFirsName")
                                         print(loginResponse)
                                     case .failure(let error):
                                         debugPrint(error)

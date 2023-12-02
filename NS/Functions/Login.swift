@@ -1,16 +1,8 @@
-//
-//  Functions.swift
-//  NS
-//
-//  Created by Даниил on 23.11.2023.
-//
-
-import Foundation
 import SwiftUI
 
 
 
-func log_in(login: String, password: String, completion: @escaping (Result<LoginResponse, Error>) -> Void) {
+func Login(login: String, password: String, completion: @escaping (Result<UserInfo, Error>) -> Void) {
     // Определение URL вашего API для входа
     let loginURL = URL(string: "https://spacekot.ru/apishechka/login")!
     
@@ -56,7 +48,7 @@ func log_in(login: String, password: String, completion: @escaping (Result<Login
         if let data = data {
             do {
                 let decoder = JSONDecoder()
-                let loginResponse = try decoder.decode(LoginResponse.self, from: data)
+                let loginResponse = try decoder.decode(UserInfo.self, from: data)
                 completion(.success(loginResponse))
             } catch {
                 completion(.failure(error))

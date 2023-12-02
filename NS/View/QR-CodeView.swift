@@ -13,8 +13,8 @@ struct QRCodeView: View {
     }
 }
 
-struct QRView_Previews: PreviewProvider {
-    static var previews: some View {
-        QRCodeView()
-    }
-}
+//struct QRView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QRCodeView()
+//    }
+//}
