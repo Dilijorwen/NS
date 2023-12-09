@@ -1,11 +1,16 @@
 import SwiftUI
+import Security
 
 struct LogInView: View {
     
-    @State private var login: String = ""
-    @State private var password: String = ""
+    @State private var login = ""
+    @State private var password = ""
     @State private var isSecure: Bool = true
+    @State private var loginError: String?
+    
+    
     @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var User: PersonInfo
     
     
     var body: some View {
@@ -13,10 +18,10 @@ struct LogInView: View {
             MainMenuView()
                 .environmentObject(settings)
         } else {
-            if UserDefaults.standard.bool(forKey: "login") == true {
-                MainMenuView()
-                    .environmentObject(settings)
-            } else {
+//            if UserDefaults.standard.bool(forKey: "isLogin") == true {
+//                MainMenuView()
+//                    .environmentObject(settings)
+//            } else {
                 ZStack{
                     Image("Path")
                     VStack{
@@ -84,10 +89,22 @@ struct LogInView: View {
                                 Login(login: login, password: password) { result in
                                     switch result {
                                     case .success(let loginResponse):
+                                        if let retrievedLogin = KeychainService.retrieveLogin(),
+                                           let retrievedPassword = KeychainService.retrievePassword() {
+                                            print("Login retrieved from Keychain: \(retrievedLogin)")
+                                            print("Password retrieved from Keychain: \(retrievedPassword)")
+                                        } else {
+                                            print("Failed to retrieve login or password from Keychain.")
+                                        }
                                         settings.isLoggedIn = true
+                                        User.first_name = loginResponse.first_name
+                                        User.last_name = loginResponse.last_name
+                                        User.id = loginResponse.id
                                         print(loginResponse)
                                     case .failure(let error):
-                                        debugPrint(error)
+                                        loginError = "Ошибка ввода пароля"
+                                        print(error)
+                                        
                                     }
                                 }
                             }) {
@@ -107,14 +124,20 @@ struct LogInView: View {
                             .background(Color(red: 0.44, green: 0.5, blue: 0.55))
                         
                             .cornerRadius(16)
+                        if loginError == "Ошибка ввода пароля"{
+                            Text("Неправильный логин или пароль")
+                                .foregroundColor(.red)
+                                .padding(.top, 34)
+                        }
                     }
                 }
             }
         }
-    }
+//    }
 }
+
 //struct LoginView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ContentView()
+//        LogInView()
 //    }
 //}

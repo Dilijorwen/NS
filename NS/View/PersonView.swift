@@ -2,12 +2,15 @@ import SwiftUI
 
 struct PersonView: View {
     
+    @State private var login: String = ""
+    @State private var password: String = ""
     @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var User: PersonInfo
     
     var body: some View {
         VStack{
             HStack(alignment: .center, spacing: 0) {
-                Text("Имя")
+                Text("\(User.first_name)")
                 .font(
                 Font.custom("Montserrat", size: 24)
                 .weight(.medium)
@@ -23,7 +26,7 @@ struct PersonView: View {
                 .padding(.top, 39)
             
             HStack(alignment: .center, spacing: 0) {
-                Text("Фамилия")
+                Text("\(User.last_name)")
                 .font(
                 Font.custom("Montserrat", size: 24)
                 .weight(.medium)
@@ -53,7 +56,7 @@ struct PersonView: View {
             }.padding(.bottom, 18)
             
             HStack(alignment: .center, spacing: 0) {
-                Text("Код")
+                Text("\(User.id)")
                 .font(
                 Font.custom("Montserrat", size: 24)
                 .weight(.medium)
@@ -70,10 +73,19 @@ struct PersonView: View {
             VStack {
                 HStack{
                     Button(action: {
-                        /*
-                         Можно использовать log_in
-                         но тогда нужно сохранять логин и пароль
-                         */
+                        if let retrievedLogin = KeychainService.retrieveLogin(),
+                           let retrievedPassword = KeychainService.retrievePassword() {
+                            Login(login: retrievedLogin, password: retrievedPassword) { result in
+                                switch result {
+                                case .success(let loginResponse):
+                                    User.first_name = loginResponse.first_name
+                                    User.last_name = loginResponse.last_name
+                                    User.id = loginResponse.id
+                                case .failure(let error):
+                                    print(error)
+                                }
+                            }
+                        }
                     }) {
                         Text("Обновить")
                         .font(

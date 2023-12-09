@@ -7,19 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A51E8E422B1B651C00F54A0E /* CoreDataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E8E412B1B651C00F54A0E /* CoreDataExtensions.swift */; };
 		A52B58EA2B0DFD3C00176472 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B58E92B0DFD3C00176472 /* MainMenuView.swift */; };
 		A52B58EC2B0DFD6D00176472 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52B58EB2B0DFD6D00176472 /* LogInView.swift */; };
-		A54BF5D72B19AD5600CF2213 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54BF5D62B19AD5600CF2213 /* User.swift */; };
 		A57195132B08D55500E4CB3F /* NSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195122B08D55500E4CB3F /* NSApp.swift */; };
 		A57195152B08D55500E4CB3F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195142B08D55500E4CB3F /* ContentView.swift */; };
 		A57195172B08D55700E4CB3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57195162B08D55700E4CB3F /* Assets.xcassets */; };
 		A571951A2B08D55700E4CB3F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57195192B08D55700E4CB3F /* Preview Assets.xcassets */; };
-		A571951C2B08D55700E4CB3F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571951B2B08D55700E4CB3F /* Persistence.swift */; };
-		A571951F2B08D55700E4CB3F /* NS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A571951D2B08D55700E4CB3F /* NS.xcdatamodeld */; };
 		A57195292B08D55800E4CB3F /* NSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195282B08D55800E4CB3F /* NSTests.swift */; };
 		A57195332B08D55800E4CB3F /* NSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195322B08D55800E4CB3F /* NSUITests.swift */; };
 		A57195352B08D55800E4CB3F /* NSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57195342B08D55800E4CB3F /* NSUITestsLaunchTests.swift */; };
+		A58DDC192B2299C8005B9E58 /* SHA256.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58DDC182B2299C8005B9E58 /* SHA256.swift */; };
+		A58DDC1B2B22A38D005B9E58 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58DDC1A2B22A38D005B9E58 /* Test.swift */; };
+		A58DDC1E2B232731005B9E58 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58DDC1D2B232731005B9E58 /* Credentials.swift */; };
 		A5ABBBE92B106F2800572327 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBE82B106F2800572327 /* PersonView.swift */; };
 		A5ABBBEB2B106F3900572327 /* BusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBEA2B106F3900572327 /* BusView.swift */; };
 		A5ABBBED2B106F6700572327 /* QR-CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */; };
@@ -45,22 +44,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A51E8E412B1B651C00F54A0E /* CoreDataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtensions.swift; sourceTree = "<group>"; };
 		A52B58E92B0DFD3C00176472 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		A52B58EB2B0DFD6D00176472 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
-		A54BF5D62B19AD5600CF2213 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A571950F2B08D55500E4CB3F /* NS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57195122B08D55500E4CB3F /* NSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSApp.swift; sourceTree = "<group>"; };
 		A57195142B08D55500E4CB3F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A57195162B08D55700E4CB3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A57195192B08D55700E4CB3F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A571951B2B08D55700E4CB3F /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		A571951E2B08D55700E4CB3F /* NS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NS.xcdatamodel; sourceTree = "<group>"; };
 		A57195242B08D55800E4CB3F /* NSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57195282B08D55800E4CB3F /* NSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTests.swift; sourceTree = "<group>"; };
 		A571952E2B08D55800E4CB3F /* NSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57195322B08D55800E4CB3F /* NSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUITests.swift; sourceTree = "<group>"; };
 		A57195342B08D55800E4CB3F /* NSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A58DDC182B2299C8005B9E58 /* SHA256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA256.swift; sourceTree = "<group>"; };
+		A58DDC1A2B22A38D005B9E58 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		A58DDC1D2B232731005B9E58 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		A5ABBBE82B106F2800572327 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		A5ABBBEA2B106F3900572327 /* BusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusView.swift; sourceTree = "<group>"; };
 		A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QR-CodeView.swift"; sourceTree = "<group>"; };
@@ -106,28 +104,11 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A51E8E3F2B1B647800F54A0E /* Persistence */ = {
-			isa = PBXGroup;
-			children = (
-				A571951B2B08D55700E4CB3F /* Persistence.swift */,
-				A51E8E412B1B651C00F54A0E /* CoreDataExtensions.swift */,
-			);
-			path = Persistence;
-			sourceTree = "<group>";
-		};
-		A51E8E402B1B649200F54A0E /* Model CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				A54BF5D62B19AD5600CF2213 /* User.swift */,
-				A571951D2B08D55700E4CB3F /* NS.xcdatamodeld */,
-			);
-			path = "Model CoreData";
-			sourceTree = "<group>";
-		};
 		A51E8E432B1B653000F54A0E /* Model NS */ = {
 			isa = PBXGroup;
 			children = (
 				A5BB01482B0F82A900E3F601 /* UserInfo.swift */,
+				A58DDC1D2B232731005B9E58 /* Credentials.swift */,
 			);
 			path = "Model NS";
 			sourceTree = "<group>";
@@ -136,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				A5BB01462B0F824C00E3F601 /* Login.swift */,
+				A58DDC182B2299C8005B9E58 /* SHA256.swift */,
+				A58DDC1A2B22A38D005B9E58 /* Test.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -164,10 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				A57195122B08D55500E4CB3F /* NSApp.swift */,
-				A51E8E3F2B1B647800F54A0E /* Persistence */,
 				A51E8E3E2B1B637C00F54A0E /* View */,
 				A51E8E442B1B666600F54A0E /* Functions */,
-				A51E8E402B1B649200F54A0E /* Model CoreData */,
 				A51E8E432B1B653000F54A0E /* Model NS */,
 				A57195162B08D55700E4CB3F /* Assets.xcassets */,
 				A57195182B08D55700E4CB3F /* Preview Content */,
@@ -334,12 +315,11 @@
 				A5ABBBEB2B106F3900572327 /* BusView.swift in Sources */,
 				A52B58EC2B0DFD6D00176472 /* LogInView.swift in Sources */,
 				A52B58EA2B0DFD3C00176472 /* MainMenuView.swift in Sources */,
-				A571951F2B08D55700E4CB3F /* NS.xcdatamodeld in Sources */,
 				A5BB01472B0F824C00E3F601 /* Login.swift in Sources */,
+				A58DDC1B2B22A38D005B9E58 /* Test.swift in Sources */,
+				A58DDC1E2B232731005B9E58 /* Credentials.swift in Sources */,
 				A5ABBBE92B106F2800572327 /* PersonView.swift in Sources */,
-				A51E8E422B1B651C00F54A0E /* CoreDataExtensions.swift in Sources */,
-				A54BF5D72B19AD5600CF2213 /* User.swift in Sources */,
-				A571951C2B08D55700E4CB3F /* Persistence.swift in Sources */,
+				A58DDC192B2299C8005B9E58 /* SHA256.swift in Sources */,
 				A57195152B08D55500E4CB3F /* ContentView.swift in Sources */,
 				A5ABBBED2B106F6700572327 /* QR-CodeView.swift in Sources */,
 				A57195132B08D55500E4CB3F /* NSApp.swift in Sources */,
@@ -512,8 +492,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -541,8 +521,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -672,19 +652,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		A571951D2B08D55700E4CB3F /* NS.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A571951E2B08D55700E4CB3F /* NS.xcdatamodel */,
-			);
-			currentVersion = A571951E2B08D55700E4CB3F /* NS.xcdatamodel */;
-			path = NS.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = A57195072B08D55500E4CB3F /* Project object */;
 }

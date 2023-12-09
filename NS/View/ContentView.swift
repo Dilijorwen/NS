@@ -1,10 +1,10 @@
 import Foundation
 
-class UserSettings: ObservableObject{
+final class UserSettings: ObservableObject{
     
     @Published var isLoggedIn: Bool {
         didSet {
-            UserDefaults.standard.set(isLoggedIn, forKey: "login" )
+            UserDefaults.standard.set(isLoggedIn, forKey: "isLogin" )
         }
     }
     

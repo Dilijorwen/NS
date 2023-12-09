@@ -1,5 +1,5 @@
 import SwiftUI
-
+import Security
 
 
 func Login(login: String, password: String, completion: @escaping (Result<UserInfo, Error>) -> Void) {
@@ -49,6 +49,27 @@ func Login(login: String, password: String, completion: @escaping (Result<UserIn
             do {
                 let decoder = JSONDecoder()
                 let loginResponse = try decoder.decode(UserInfo.self, from: data)
+                // Сохранение логина в Keychain
+                if let loginData = login.data(using: .utf8) {
+                    let saveLoginQuery: [String: Any] = [
+                        kSecClass as String: kSecClassGenericPassword,
+                        kSecAttrAccount as String: "myAppLogin",
+                        kSecValueData as String: loginData
+                    ]
+                    SecItemDelete(saveLoginQuery as CFDictionary)
+                    SecItemAdd(saveLoginQuery as CFDictionary, nil)
+                }
+                
+                // Сохранение пароля в Keychain
+                if let passwordData = password.data(using: .utf8) {
+                    let savePasswordQuery: [String: Any] = [
+                        kSecClass as String: kSecClassGenericPassword,
+                        kSecAttrAccount as String: "myAppPassword",
+                        kSecValueData as String: passwordData
+                    ]
+                    SecItemDelete(savePasswordQuery as CFDictionary)
+                    SecItemAdd(savePasswordQuery as CFDictionary, nil)
+                }
                 completion(.success(loginResponse))
             } catch {
                 completion(.failure(error))
