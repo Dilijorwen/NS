@@ -24,6 +24,14 @@
 		A5ABBBED2B106F6700572327 /* QR-CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */; };
 		A5BB01472B0F824C00E3F601 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB01462B0F824C00E3F601 /* Login.swift */; };
 		A5BB01492B0F82A900E3F601 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB01482B0F82A900E3F601 /* UserInfo.swift */; };
+		A5D6E3E92B26C017004B86E0 /* DailySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6E3E82B26C017004B86E0 /* DailySchedule.swift */; };
+		A5D6E3EB2B26C093004B86E0 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6E3EA2B26C093004B86E0 /* Ticket.swift */; };
+		A5D6E3ED2B26C564004B86E0 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6E3EC2B26C564004B86E0 /* Trip.swift */; };
+		A5D6E3EF2B26C64D004B86E0 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6E3EE2B26C64D004B86E0 /* Driver.swift */; };
+		A5D6E3F12B26C711004B86E0 /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6E3F02B26C711004B86E0 /* Bus.swift */; };
+		A5D6E3F32B282423004B86E0 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6E3F22B282423004B86E0 /* Permission.swift */; };
+		A5D6E3FB2B282DFF004B86E0 /* QRScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6E3FA2B282DFF004B86E0 /* QRScannerDelegate.swift */; };
+		A5ED92522B24BCBC002ED5CC /* CamerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ED92512B24BCBB002ED5CC /* CamerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +64,7 @@
 		A571952E2B08D55800E4CB3F /* NSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57195322B08D55800E4CB3F /* NSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUITests.swift; sourceTree = "<group>"; };
 		A57195342B08D55800E4CB3F /* NSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A573CA452B24996E00DA4322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A58DDC182B2299C8005B9E58 /* SHA256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA256.swift; sourceTree = "<group>"; };
 		A58DDC1A2B22A38D005B9E58 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		A58DDC1D2B232731005B9E58 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -64,6 +73,14 @@
 		A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QR-CodeView.swift"; sourceTree = "<group>"; };
 		A5BB01462B0F824C00E3F601 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		A5BB01482B0F82A900E3F601 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		A5D6E3E82B26C017004B86E0 /* DailySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySchedule.swift; sourceTree = "<group>"; };
+		A5D6E3EA2B26C093004B86E0 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		A5D6E3EC2B26C564004B86E0 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		A5D6E3EE2B26C64D004B86E0 /* Driver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
+		A5D6E3F02B26C711004B86E0 /* Bus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
+		A5D6E3F22B282423004B86E0 /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
+		A5D6E3FA2B282DFF004B86E0 /* QRScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerDelegate.swift; sourceTree = "<group>"; };
+		A5ED92512B24BCBB002ED5CC /* CamerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,36 +108,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A51E8E3E2B1B637C00F54A0E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				A57195142B08D55500E4CB3F /* ContentView.swift */,
-				A52B58EB2B0DFD6D00176472 /* LogInView.swift */,
-				A52B58E92B0DFD3C00176472 /* MainMenuView.swift */,
-				A5ABBBE82B106F2800572327 /* PersonView.swift */,
-				A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */,
-				A5ABBBEA2B106F3900572327 /* BusView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		A51E8E432B1B653000F54A0E /* Model NS */ = {
 			isa = PBXGroup;
 			children = (
 				A5BB01482B0F82A900E3F601 /* UserInfo.swift */,
+				A5D6E3E82B26C017004B86E0 /* DailySchedule.swift */,
+				A5D6E3EA2B26C093004B86E0 /* Ticket.swift */,
+				A5D6E3EC2B26C564004B86E0 /* Trip.swift */,
+				A5D6E3EE2B26C64D004B86E0 /* Driver.swift */,
+				A5D6E3F02B26C711004B86E0 /* Bus.swift */,
 				A58DDC1D2B232731005B9E58 /* Credentials.swift */,
 			);
 			path = "Model NS";
-			sourceTree = "<group>";
-		};
-		A51E8E442B1B666600F54A0E /* Functions */ = {
-			isa = PBXGroup;
-			children = (
-				A5BB01462B0F824C00E3F601 /* Login.swift */,
-				A58DDC182B2299C8005B9E58 /* SHA256.swift */,
-				A58DDC1A2B22A38D005B9E58 /* Test.swift */,
-			);
-			path = Functions;
 			sourceTree = "<group>";
 		};
 		A57195062B08D55500E4CB3F = {
@@ -147,10 +146,11 @@
 			isa = PBXGroup;
 			children = (
 				A57195122B08D55500E4CB3F /* NSApp.swift */,
-				A51E8E3E2B1B637C00F54A0E /* View */,
-				A51E8E442B1B666600F54A0E /* Functions */,
+				A5D6E3F92B282D87004B86E0 /* View */,
 				A51E8E432B1B653000F54A0E /* Model NS */,
+				A58DDC1A2B22A38D005B9E58 /* Test.swift */,
 				A57195162B08D55700E4CB3F /* Assets.xcassets */,
+				A573CA452B24996E00DA4322 /* Info.plist */,
 				A57195182B08D55700E4CB3F /* Preview Content */,
 			);
 			path = NS;
@@ -179,6 +179,64 @@
 				A57195342B08D55800E4CB3F /* NSUITestsLaunchTests.swift */,
 			);
 			path = NSUITests;
+			sourceTree = "<group>";
+		};
+		A5D6E3F42B282CDB004B86E0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A57195142B08D55500E4CB3F /* ContentView.swift */,
+				A52B58EB2B0DFD6D00176472 /* LogInView.swift */,
+				A5BB01462B0F824C00E3F601 /* Login.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A5D6E3F52B282CF5004B86E0 /* QR */ = {
+			isa = PBXGroup;
+			children = (
+				A5D6E3F22B282423004B86E0 /* Permission.swift */,
+				A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */,
+				A5ED92512B24BCBB002ED5CC /* CamerView.swift */,
+				A5D6E3FA2B282DFF004B86E0 /* QRScannerDelegate.swift */,
+				A58DDC182B2299C8005B9E58 /* SHA256.swift */,
+			);
+			path = QR;
+			sourceTree = "<group>";
+		};
+		A5D6E3F62B282D5E004B86E0 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				A52B58E92B0DFD3C00176472 /* MainMenuView.swift */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		A5D6E3F72B282D6C004B86E0 /* Bus */ = {
+			isa = PBXGroup;
+			children = (
+				A5ABBBEA2B106F3900572327 /* BusView.swift */,
+			);
+			path = Bus;
+			sourceTree = "<group>";
+		};
+		A5D6E3F82B282D77004B86E0 /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				A5ABBBE82B106F2800572327 /* PersonView.swift */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
+		A5D6E3F92B282D87004B86E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A5D6E3F62B282D5E004B86E0 /* MainMenu */,
+				A5D6E3F42B282CDB004B86E0 /* Login */,
+				A5D6E3F82B282D77004B86E0 /* Person */,
+				A5D6E3F72B282D6C004B86E0 /* Bus */,
+				A5D6E3F52B282CF5004B86E0 /* QR */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,15 +369,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D6E3F12B26C711004B86E0 /* Bus.swift in Sources */,
 				A5BB01492B0F82A900E3F601 /* UserInfo.swift in Sources */,
+				A5D6E3FB2B282DFF004B86E0 /* QRScannerDelegate.swift in Sources */,
 				A5ABBBEB2B106F3900572327 /* BusView.swift in Sources */,
+				A5D6E3E92B26C017004B86E0 /* DailySchedule.swift in Sources */,
 				A52B58EC2B0DFD6D00176472 /* LogInView.swift in Sources */,
+				A5D6E3F32B282423004B86E0 /* Permission.swift in Sources */,
+				A5D6E3ED2B26C564004B86E0 /* Trip.swift in Sources */,
+				A5D6E3EB2B26C093004B86E0 /* Ticket.swift in Sources */,
 				A52B58EA2B0DFD3C00176472 /* MainMenuView.swift in Sources */,
 				A5BB01472B0F824C00E3F601 /* Login.swift in Sources */,
 				A58DDC1B2B22A38D005B9E58 /* Test.swift in Sources */,
 				A58DDC1E2B232731005B9E58 /* Credentials.swift in Sources */,
+				A5D6E3EF2B26C64D004B86E0 /* Driver.swift in Sources */,
 				A5ABBBE92B106F2800572327 /* PersonView.swift in Sources */,
 				A58DDC192B2299C8005B9E58 /* SHA256.swift in Sources */,
+				A5ED92522B24BCBC002ED5CC /* CamerView.swift in Sources */,
 				A57195152B08D55500E4CB3F /* ContentView.swift in Sources */,
 				A5ABBBED2B106F6700572327 /* QR-CodeView.swift in Sources */,
 				A57195132B08D55500E4CB3F /* NSApp.swift in Sources */,
@@ -489,9 +555,10 @@
 				DEVELOPMENT_TEAM = 5MDD4AAJV2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NS/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -503,7 +570,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -518,9 +585,10 @@
 				DEVELOPMENT_TEAM = 5MDD4AAJV2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NS/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -532,7 +600,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

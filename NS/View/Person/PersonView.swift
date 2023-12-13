@@ -19,11 +19,11 @@ struct PersonView: View {
                 .frame(width: 295, alignment: .topLeading)
                 .padding(.horizontal, 23)
                 .padding(.vertical, 21)
-                .frame(width: 341, height: 66, alignment: .center)
+                .frame(width: 341, height: 54, alignment: .center)
                 .background(Color(red: 0.93, green: 0.93, blue: 0.93))
                 .cornerRadius(30)
             }.padding(.bottom, 18)
-                .padding(.top, 39)
+                .padding(.top, 29)
             
             HStack(alignment: .center, spacing: 0) {
                 Text("\(User.last_name)")
@@ -35,13 +35,13 @@ struct PersonView: View {
                 .frame(width: 295, alignment: .topLeading)
                 .padding(.horizontal, 23)
                 .padding(.vertical, 21)
-                .frame(width: 341, height: 66, alignment: .center)
+                .frame(width: 341, height: 54, alignment: .center)
                 .background(Color(red: 0.93, green: 0.93, blue: 0.93))
                 .cornerRadius(30)
-            }.padding(.bottom, 18)
+            }.padding(.bottom, 28)
             
             HStack(alignment: .center, spacing: 0) {
-                Text("Отчество")
+                Text("\(User.patronymic)")
                 .font(
                 Font.custom("Montserrat", size: 24)
                 .weight(.medium)
@@ -50,13 +50,13 @@ struct PersonView: View {
                 .frame(width: 295, alignment: .topLeading)
                 .padding(.horizontal, 23)
                 .padding(.vertical, 21)
-                .frame(width: 341, height: 66, alignment: .center)
+                .frame(width: 341, height: 54, alignment: .center)
                 .background(Color(red: 0.93, green: 0.93, blue: 0.93))
                 .cornerRadius(30)
-            }.padding(.bottom, 18)
+            }.padding(.bottom, 28)
             
             HStack(alignment: .center, spacing: 0) {
-                Text("\(User.id)")
+                Text("\(User.bus_code)")
                 .font(
                 Font.custom("Montserrat", size: 24)
                 .weight(.medium)
@@ -65,10 +65,10 @@ struct PersonView: View {
                 .frame(width: 295, alignment: .topLeading)
                 .padding(.horizontal, 23)
                 .padding(.vertical, 21)
-                .frame(width: 341, height: 66, alignment: .center)
+                .frame(width: 341, height: 54, alignment: .center)
                 .background(Color(red: 0.93, green: 0.93, blue: 0.93))
                 .cornerRadius(30)
-            }.padding(.bottom, 38)
+            }.padding(.bottom, 48)
             
             VStack {
                 HStack{
@@ -80,53 +80,49 @@ struct PersonView: View {
                                 case .success(let loginResponse):
                                     User.first_name = loginResponse.first_name
                                     User.last_name = loginResponse.last_name
-                                    User.id = loginResponse.id
+                                    User.bus_code = loginResponse.bus_code
+                                    User.patronymic = loginResponse.patronymic
                                 case .failure(let error):
+                                    settings.isLoggedIn = false
                                     print(error)
                                 }
                             }
+                        } else {
+                            settings.isLoggedIn = false
                         }
                     }) {
                         Text("Обновить")
-                        .font(
-                        Font.custom("Montserrat", size: 24)
-                        .weight(.medium)
-                        )
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.white)
-
-                        .frame(width: 212, height: 29, alignment: .center)
+                            .preferredColorScheme(.light)
+                            .font(
+                                Font.custom("Montserrat", size: 20)
+                                    .weight(.bold)
+                            )
+                            .frame(width: 265, height: 54, alignment: .center)
+                            .foregroundColor(.white)
+                            .background(Color(red: 0.44, green: 0.5, blue: 0.55))
+                            .cornerRadius(30)
+                        
                     }
-                }.padding(.leading, 64)
-                    .padding(.trailing, 65)
-                    .padding(.top, 19)
-                    .padding(.bottom, 18)
-                    .frame(width: 341, height: 66, alignment: .center)
-                    .background(Color(red: 0.44, green: 0.5, blue: 0.55))
-                    .cornerRadius(30)
-            }.padding(.bottom, 87)
+                }
+            }.padding(.bottom, 77)
             
             HStack{
                 Button(action: {
                     settings.isLoggedIn = false
                 }) {
-                    Text("Выйти")
-                    .font(
-                    Font.custom("Montserrat", size: 24)
-                    .weight(.medium)
-                    )
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.white)
-
-                    .frame(width: 212, height: 29, alignment: .center)
-                }
-            }.padding(.leading, 64)
-                .padding(.trailing, 65)
-                .padding(.top, 19)
-                .padding(.bottom, 18)
-                .frame(width: 341, height: 66, alignment: .center)
-                .background(.black)
-                .cornerRadius(30)
+                        Text("Выйти")
+                            .preferredColorScheme(.light)
+                            .font(
+                                Font.custom("Montserrat", size: 20)
+                                    .weight(.bold)
+                            )
+                            .frame(width: 265, height: 54, alignment: .center)
+                            .foregroundColor(.white)
+                            .background(Color(.black))
+                            .cornerRadius(30)
+                        
+                    }
+            }
         }
     }
 }

@@ -2,11 +2,12 @@ import SwiftUI
 import Foundation
 
 struct UserInfo: Codable {
-    let token: String
-    let id: Int64
     let first_name: String
     let last_name: String
-    let role: String
+    let patronymic: String
+    let bus_code: Int64
+    let token: String
+    let daily_schedule: [DailySchedule]
 }
 
 final class PersonInfo: ObservableObject{
@@ -24,10 +25,17 @@ final class PersonInfo: ObservableObject{
             
         }
     }
-
-    @Published var id: Int64 {
+    
+    @Published var patronymic: String {
         didSet {
-            UserDefaults.standard.set(id, forKey: "id" )
+            UserDefaults.standard.set(patronymic, forKey: "patronymic" )
+            
+        }
+    }
+
+    @Published var bus_code: Int64 {
+        didSet {
+            UserDefaults.standard.set(bus_code, forKey: "bus_code" )
             
         }
     }
@@ -35,7 +43,8 @@ final class PersonInfo: ObservableObject{
     init(){
         self.first_name = ""
         self.last_name = ""
-        self.id = 0
+        self.patronymic = ""
+        self.bus_code = 0
     }
     
 }

@@ -4,7 +4,7 @@ import Security
 
 func Login(login: String, password: String, completion: @escaping (Result<UserInfo, Error>) -> Void) {
     // Определение URL вашего API для входа
-    let loginURL = URL(string: "https://spacekot.ru/apishechka/login")!
+    let loginURL = URL(string: "https://spacekot.ru/apishechka/m/login")!
     
     // Создание запроса
     var request = URLRequest(url: loginURL)
@@ -13,7 +13,8 @@ func Login(login: String, password: String, completion: @escaping (Result<UserIn
     // Установка тела запроса с учетными данными пользователя
     let requestBody: [String: Any] = [
         "login": login,
-        "password": password
+        "password": password,
+        "date": "2022-01-01"
     ]
     
     do {
