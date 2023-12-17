@@ -5,7 +5,7 @@ struct UserInfo: Codable {
     let first_name: String
     let last_name: String
     let patronymic: String
-    let bus_code: Int64
+    let bus_code: Int
     let token: String
     let daily_schedule: [DailySchedule]
 }
@@ -33,7 +33,7 @@ final class PersonInfo: ObservableObject{
         }
     }
 
-    @Published var bus_code: Int64 {
+    @Published var bus_code: Int {
         didSet {
             UserDefaults.standard.set(bus_code, forKey: "bus_code" )
             

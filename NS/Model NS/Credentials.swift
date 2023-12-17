@@ -1,36 +1,7 @@
 import SwiftUI
 
-enum CredentialsInfoError: Error{
-    case duplicateItem
-    case unknown(status: OSStatus)
-}
 
-
-
-final class Credentials{
-    static func save(login: String, password: Data) throws -> String{
-        let query: [CFString: Any] = [
-            kSecClass: kSecClassGenericPassword,
-            kSecAttrAccount: login,
-            kSecValueData: password
-        ]
-        
-        let status = SecItemAdd(query as CFDictionary, nil)
-        
-        guard status != errSecSuccess else {
-            throw CredentialsInfoError.duplicateItem
-        }
-        
-        guard status == errSecSuccess else{
-            throw CredentialsInfoError.unknown(status: status)
-        }
-        
-        return "Saved"
-    }
-}
-
-
-struct KeychainService {
+struct Credentials {
     static func retrieveLogin() -> String? {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,

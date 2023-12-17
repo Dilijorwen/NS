@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct Ticket: Codable {
-    let id: Int64
-    let departure_id: Int64
-    let bus_route_id: Int64
-    let place_number: Int64
-    let trip_id: Int64
+    let id: Int
+    let departure_id: Int
+    let bus_route_id: Int
+    let place_number: Int
+    let trip_id: Int
     let date: Date
     let time: String
     let departure_point: String

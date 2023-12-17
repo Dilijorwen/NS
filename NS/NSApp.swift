@@ -9,6 +9,7 @@ struct NSApp: App {
                 .preferredColorScheme(.light)
                 .environmentObject(UserSettings())
                 .environmentObject(PersonInfo())
+                .environmentObject(TripInfo())
         }
     }
 }

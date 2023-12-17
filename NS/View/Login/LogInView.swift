@@ -15,6 +15,7 @@ struct LogInView: View {
     
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var User: PersonInfo
+    @EnvironmentObject var Trip: TripInfo
     
     
     var body: some View {
@@ -91,7 +92,7 @@ struct LogInView: View {
                         
                         HStack{
                             Button(action: {
-                                Login(login: login, password: password) { result in
+                                Login(login: sha256(login), password: sha256(password)) { result in
                                     switch result {
                                     case .success(let loginResponse):
                                         settings.isLoggedIn = true
@@ -99,12 +100,15 @@ struct LogInView: View {
                                         User.last_name = loginResponse.last_name
                                         User.bus_code = loginResponse.bus_code
                                         User.patronymic = loginResponse.patronymic
+                                        Trip.trip_id = loginResponse.daily_schedule.first?.trip.id
+                                        Trip.departure_time = loginResponse.daily_schedule.first?.trip.departure_time
+                                        Trip.stations = loginResponse.daily_schedule.first?.trip.stations
+                                        Trip.days = loginResponse.daily_schedule.first?.trip.days
                                         loginErrorBool = false
                                         print(loginResponse)
                                     case .failure(let error):
                                         loginErrorBool = true
                                         print(error)
-                                        
                                     }
                                 }
                             }) {

@@ -6,6 +6,7 @@ struct PersonView: View {
     @State private var password: String = ""
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var User: PersonInfo
+    @EnvironmentObject var Trip: TripInfo
     
     var body: some View {
         VStack{
@@ -73,8 +74,8 @@ struct PersonView: View {
             VStack {
                 HStack{
                     Button(action: {
-                        if let retrievedLogin = KeychainService.retrieveLogin(),
-                           let retrievedPassword = KeychainService.retrievePassword() {
+                        if let retrievedLogin = Credentials.retrieveLogin(),
+                           let retrievedPassword = Credentials.retrievePassword() {
                             Login(login: retrievedLogin, password: retrievedPassword) { result in
                                 switch result {
                                 case .success(let loginResponse):
@@ -82,6 +83,10 @@ struct PersonView: View {
                                     User.last_name = loginResponse.last_name
                                     User.bus_code = loginResponse.bus_code
                                     User.patronymic = loginResponse.patronymic
+                                    Trip.trip_id = loginResponse.daily_schedule.first?.trip.id
+                                    Trip.departure_time = loginResponse.daily_schedule.first?.trip.departure_time
+                                    Trip.stations = loginResponse.daily_schedule.first?.trip.stations
+                                    Trip.days = loginResponse.daily_schedule.first?.trip.days
                                 case .failure(let error):
                                     settings.isLoggedIn = false
                                     print(error)

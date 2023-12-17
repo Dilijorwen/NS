@@ -22,6 +22,7 @@
 		A5ABBBE92B106F2800572327 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBE82B106F2800572327 /* PersonView.swift */; };
 		A5ABBBEB2B106F3900572327 /* BusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBEA2B106F3900572327 /* BusView.swift */; };
 		A5ABBBED2B106F6700572327 /* QR-CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */; };
+		A5BADA5D2B2F0DD8001ED876 /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BADA5C2B2F0DD8001ED876 /* StationView.swift */; };
 		A5BB01472B0F824C00E3F601 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB01462B0F824C00E3F601 /* Login.swift */; };
 		A5BB01492B0F82A900E3F601 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB01482B0F82A900E3F601 /* UserInfo.swift */; };
 		A5D6E3E92B26C017004B86E0 /* DailySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D6E3E82B26C017004B86E0 /* DailySchedule.swift */; };
@@ -71,6 +72,7 @@
 		A5ABBBE82B106F2800572327 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		A5ABBBEA2B106F3900572327 /* BusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusView.swift; sourceTree = "<group>"; };
 		A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QR-CodeView.swift"; sourceTree = "<group>"; };
+		A5BADA5C2B2F0DD8001ED876 /* StationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
 		A5BB01462B0F824C00E3F601 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		A5BB01482B0F82A900E3F601 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		A5D6E3E82B26C017004B86E0 /* DailySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySchedule.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				A5D6E3F92B282D87004B86E0 /* View */,
 				A51E8E432B1B653000F54A0E /* Model NS */,
 				A58DDC1A2B22A38D005B9E58 /* Test.swift */,
+				A58DDC182B2299C8005B9E58 /* SHA256.swift */,
 				A57195162B08D55700E4CB3F /* Assets.xcassets */,
 				A573CA452B24996E00DA4322 /* Info.plist */,
 				A57195182B08D55700E4CB3F /* Preview Content */,
@@ -198,7 +201,6 @@
 				A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */,
 				A5ED92512B24BCBB002ED5CC /* CamerView.swift */,
 				A5D6E3FA2B282DFF004B86E0 /* QRScannerDelegate.swift */,
-				A58DDC182B2299C8005B9E58 /* SHA256.swift */,
 			);
 			path = QR;
 			sourceTree = "<group>";
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				A5ABBBEA2B106F3900572327 /* BusView.swift */,
+				A5BADA5C2B2F0DD8001ED876 /* StationView.swift */,
 			);
 			path = Bus;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				A5BB01472B0F824C00E3F601 /* Login.swift in Sources */,
 				A58DDC1B2B22A38D005B9E58 /* Test.swift in Sources */,
 				A58DDC1E2B232731005B9E58 /* Credentials.swift in Sources */,
+				A5BADA5D2B2F0DD8001ED876 /* StationView.swift in Sources */,
 				A5D6E3EF2B26C64D004B86E0 /* Driver.swift in Sources */,
 				A5ABBBE92B106F2800572327 /* PersonView.swift in Sources */,
 				A58DDC192B2299C8005B9E58 /* SHA256.swift in Sources */,

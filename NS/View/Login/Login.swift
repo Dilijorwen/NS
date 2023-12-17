@@ -50,6 +50,7 @@ func Login(login: String, password: String, completion: @escaping (Result<UserIn
             do {
                 let decoder = JSONDecoder()
                 let loginResponse = try decoder.decode(UserInfo.self, from: data)
+                let trip = loginResponse.daily_schedule.compactMap { $0.trip }.first
                 // Сохранение логина в Keychain
                 if let loginData = login.data(using: .utf8) {
                     let saveLoginQuery: [String: Any] = [

@@ -2,16 +2,20 @@ import SwiftUI
 import AVKit
 
 struct QRCodeView: View {
+    /// Всплывающие окна
     @State private var isShowingPopup = false
+    @State private var isShowingSuccessPopup = false
+    @State private var isShowingDeniedPopup = false
+    
+    /// Данные для ручной проверки билетов
     @State private var ticketId = ""
     @State private var flightNumber = ""
     @State private var seatNumber = ""
     @State private var timeStart = ""
     @State private var codeNumber = ""
-    @State private var Verification = ""
     
     @State private var isScanning: Bool = false
-    @State private var  session: AVCaptureSession = .init()
+    @State private var session: AVCaptureSession = .init()
     @State private var cameraPermisson: Permission = .idle
     
     @State private var qrOutput: AVCaptureMetadataOutput = .init()
@@ -145,16 +149,39 @@ struct QRCodeView: View {
                     .padding()
                     
                     Button(action: {
-                        Verification = ticketId + flightNumber + seatNumber + timeStart
-                        
+                        let verification = "\(ticketId) \(flightNumber) \(seatNumber)"
+                        let shaVerification = sha256(verification)
+                        let substringShaVerification = String(shaVerification.prefix(6))
+                        let substringCodeNumber = String(codeNumber.prefix(6))
+                        if substringShaVerification == substringCodeNumber {
+                            isShowingSuccessPopup = true // Показываем окно "Ура"
+                        } else {
+                            isShowingDeniedPopup = true // Показываем окно "Плохо"
+                        }
                     }) {
                         Text("Проверить")
                             .foregroundColor(.white)
                             .frame(width: 265, height: 54, alignment: .center)
                             .background(Color(red: 0.44, green: 0.5, blue: 0.55))
-
+                        
                             .cornerRadius(30)
                         
+                    }
+                    .popover(isPresented: $isShowingSuccessPopup, arrowEdge: .top) {
+                        VStack {
+                            Text("Данные верны")
+                                .font(.title3)
+                                .foregroundColor(.black.opacity(0.8))
+                        }
+                    }
+                    
+                    // Всплывающее окно для случая "Плохо"
+                    .popover(isPresented: $isShowingDeniedPopup, arrowEdge: .top) {
+                        VStack {
+                            Text("Данные неверны")
+                                .font(.title3)
+                                .foregroundColor(.black.opacity(0.8))
+                        }
                     }
                     .padding()
                 }
@@ -180,6 +207,12 @@ struct QRCodeView: View {
                     
                 }
             }
+        }
+        .alert(isPresented: $qrDelegate.isShowingQRSuccessPopup) {
+            Alert(title: Text("Ура"), message: nil, dismissButton: .default(Text("OK")))
+        }
+        .alert(isPresented: $qrDelegate.isShowingQRDeniedPopup) {
+            Alert(title: Text("Плохо"), message: nil, dismissButton: .default(Text("OK")))
         }
         .onChange(of: qrDelegate.scannedCode) { oldValue, newValue in
             if let code = newValue {
