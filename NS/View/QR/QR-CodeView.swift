@@ -2,10 +2,14 @@ import SwiftUI
 import AVKit
 
 struct QRCodeView: View {
-    /// Всплывающие окна
+    /// Всплывающи окно
     @State private var isShowingPopup = false
     @State private var isShowingSuccessPopup = false
     @State private var isShowingDeniedPopup = false
+    
+    @State var alertText = ""
+    
+    @EnvironmentObject var trip: TripInfo
     
     /// Данные для ручной проверки билетов
     @State private var ticketId = ""
@@ -26,7 +30,9 @@ struct QRCodeView: View {
     
     @StateObject private var qrDelegate = QRScannerDelegate()
     
+    
     @State private var scannedCode: String = ""
+    
     var body: some View {
         VStack(spacing: 8){
             Text("Область QR-кода внутри арены")
@@ -46,6 +52,20 @@ struct QRCodeView: View {
                 
                 ZStack{
                     CamerView(frameSize: CGSize(width: 210, height: 210), session: $session)
+                        .popover(isPresented: $qrDelegate.isShowingQRSuccessPopup , arrowEdge: .top) {
+                            VStack {
+                                Text("\(qrDelegate.alertQRText)")
+                                    .font(.title3)
+                                    .foregroundColor(.black.opacity(0.8))
+                            }
+                        }
+                        .popover(isPresented: $qrDelegate.isShowingQRDeniedPopup, arrowEdge: .top) {
+                            VStack {
+                                Text("\(qrDelegate.alertQRText)")
+                                    .font(.title3)
+                                    .foregroundColor(.black.opacity(0.8))
+                            }
+                        }
                         .scaleEffect(0.97)
                     ForEach(0...4, id: \.self) { index in
                         let rotation = Double(index) * 90
@@ -153,10 +173,26 @@ struct QRCodeView: View {
                         let shaVerification = sha256(verification)
                         let substringShaVerification = String(shaVerification.prefix(6))
                         let substringCodeNumber = String(codeNumber.prefix(6))
-                        if substringShaVerification == substringCodeNumber {
-                            isShowingSuccessPopup = true // Показываем окно "Ура"
+                        if trip.isTripStarted {
+                            if let tripID = trip.trip_id {
+                                if ticketId == String(tripID){
+                                    if substringShaVerification == substringCodeNumber {
+                                        isShowingSuccessPopup = true
+                                        isShowingDeniedPopup = false
+                                        alertText = "Успешно"
+                                    } else {
+                                        isShowingSuccessPopup = false
+                                        isShowingDeniedPopup = true
+                                        alertText = "Неверный билет"
+                                    }
+                                } else {
+                                    alertText = "Билет не на этот рейс"
+                                    isShowingDeniedPopup = true
+                                }
+                            }
                         } else {
-                            isShowingDeniedPopup = true // Показываем окно "Плохо"
+                            alertText = "Вы не начали поездку"
+                            isShowingDeniedPopup = true
                         }
                     }) {
                         Text("Проверить")
@@ -167,9 +203,9 @@ struct QRCodeView: View {
                             .cornerRadius(30)
                         
                     }
-                    .popover(isPresented: $isShowingSuccessPopup, arrowEdge: .top) {
+                    .popover(isPresented: $isShowingSuccessPopup , arrowEdge: .top) {
                         VStack {
-                            Text("Данные верны")
+                            Text("\(alertText)")
                                 .font(.title3)
                                 .foregroundColor(.black.opacity(0.8))
                         }
@@ -178,7 +214,7 @@ struct QRCodeView: View {
                     // Всплывающее окно для случая "Плохо"
                     .popover(isPresented: $isShowingDeniedPopup, arrowEdge: .top) {
                         VStack {
-                            Text("Данные неверны")
+                            Text("\(alertText)")
                                 .font(.title3)
                                 .foregroundColor(.black.opacity(0.8))
                         }
@@ -207,12 +243,6 @@ struct QRCodeView: View {
                     
                 }
             }
-        }
-        .alert(isPresented: $qrDelegate.isShowingQRSuccessPopup) {
-            Alert(title: Text("Ура"), message: nil, dismissButton: .default(Text("OK")))
-        }
-        .alert(isPresented: $qrDelegate.isShowingQRDeniedPopup) {
-            Alert(title: Text("Плохо"), message: nil, dismissButton: .default(Text("OK")))
         }
         .onChange(of: qrDelegate.scannedCode) { oldValue, newValue in
             if let code = newValue {

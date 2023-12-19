@@ -21,6 +21,7 @@ struct MainMenuView: View {
                 .tag(1)
 
             QRCodeView()
+                .environmentObject(TripInfo())
                 .tabItem {
                     Image(systemName: "qrcode.viewfinder")
                 }

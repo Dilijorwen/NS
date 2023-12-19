@@ -12,6 +12,8 @@ struct Trip: Codable{
 
 final class TripInfo: ObservableObject{
     
+    @Published var isTripStarted = false
+    
     @Published var trip_id: Int? {
         didSet {
             UserDefaults.standard.set(trip_id, forKey: "trip_id" )
@@ -47,4 +49,10 @@ final class TripInfo: ObservableObject{
         self.stations = []
     }
     
+}
+
+extension Array {
+    subscript(safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
 }

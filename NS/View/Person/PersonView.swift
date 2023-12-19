@@ -5,13 +5,13 @@ struct PersonView: View {
     @State private var login: String = ""
     @State private var password: String = ""
     @EnvironmentObject var settings: UserSettings
-    @EnvironmentObject var User: PersonInfo
-    @EnvironmentObject var Trip: TripInfo
+    @EnvironmentObject var user: PersonInfo
+    @EnvironmentObject var trip: TripInfo
     
     var body: some View {
         VStack{
             HStack(alignment: .center, spacing: 0) {
-                Text("\(User.first_name)")
+                Text("\(user.first_name)")
                 .font(
                 Font.custom("Montserrat", size: 24)
                 .weight(.medium)
@@ -27,7 +27,7 @@ struct PersonView: View {
                 .padding(.top, 29)
             
             HStack(alignment: .center, spacing: 0) {
-                Text("\(User.last_name)")
+                Text("\(user.last_name)")
                 .font(
                 Font.custom("Montserrat", size: 24)
                 .weight(.medium)
@@ -42,7 +42,7 @@ struct PersonView: View {
             }.padding(.bottom, 28)
             
             HStack(alignment: .center, spacing: 0) {
-                Text("\(User.patronymic)")
+                Text("\(user.patronymic)")
                 .font(
                 Font.custom("Montserrat", size: 24)
                 .weight(.medium)
@@ -57,7 +57,7 @@ struct PersonView: View {
             }.padding(.bottom, 28)
             
             HStack(alignment: .center, spacing: 0) {
-                Text("\(User.bus_code)")
+                Text("\(user.bus_code)")
                 .font(
                 Font.custom("Montserrat", size: 24)
                 .weight(.medium)
@@ -79,14 +79,14 @@ struct PersonView: View {
                             Login(login: retrievedLogin, password: retrievedPassword) { result in
                                 switch result {
                                 case .success(let loginResponse):
-                                    User.first_name = loginResponse.first_name
-                                    User.last_name = loginResponse.last_name
-                                    User.bus_code = loginResponse.bus_code
-                                    User.patronymic = loginResponse.patronymic
-                                    Trip.trip_id = loginResponse.daily_schedule.first?.trip.id
-                                    Trip.departure_time = loginResponse.daily_schedule.first?.trip.departure_time
-                                    Trip.stations = loginResponse.daily_schedule.first?.trip.stations
-                                    Trip.days = loginResponse.daily_schedule.first?.trip.days
+                                    user.first_name = loginResponse.first_name
+                                    user.last_name = loginResponse.last_name
+                                    user.bus_code = loginResponse.bus_code
+                                    user.patronymic = loginResponse.patronymic
+                                    trip.trip_id = loginResponse.daily_schedule.first?.trip.id
+                                    trip.departure_time = loginResponse.daily_schedule.first?.trip.departure_time
+                                    trip.stations = loginResponse.daily_schedule.first?.trip.stations
+                                    trip.days = loginResponse.daily_schedule.first?.trip.days
                                 case .failure(let error):
                                     settings.isLoggedIn = false
                                     print(error)

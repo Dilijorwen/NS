@@ -3,8 +3,13 @@ import AVKit
 
 class QRScannerDelegate: NSObject, ObservableObject, AVCaptureMetadataOutputObjectsDelegate {
     @Published var scannedCode: String?
+    
     @Published var isShowingQRSuccessPopup = false
     @Published var isShowingQRDeniedPopup = false
+    
+    @Published var alertQRText = ""
+    
+    @EnvironmentObject var trip: TripInfo
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if let metaObject = metadataObjects.first {
@@ -18,11 +23,15 @@ class QRScannerDelegate: NSObject, ObservableObject, AVCaptureMetadataOutputObje
                 
                 let verification = "\(ticketData.ticket_id) \(ticketData.flight_number) \(ticketData.seat_number)"
                 let shaVerification = sha256(verification)
+                print(shaVerification, ticketData.code_number)
                 if shaVerification == ticketData.code_number {
-                    isShowingQRSuccessPopup = true // Показываем окно "Ура"
-                    
+                    isShowingQRSuccessPopup = true
+                    isShowingQRDeniedPopup = false // Показываем окно "Ура"
+                    alertQRText = "Успешно"
                 } else {
-                    isShowingQRDeniedPopup = true // Показываем окно "Плохо"
+                    isShowingQRDeniedPopup = true
+                    isShowingQRSuccessPopup = false // Показываем окно "Плохо"
+                    alertQRText = "Неверный билет"
                 }
             } catch {
                 print("Ошибка при декодировании JSON: \(error.localizedDescription)")

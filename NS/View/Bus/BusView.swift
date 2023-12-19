@@ -1,23 +1,21 @@
 import SwiftUI
 
 struct BusView: View {
-    @EnvironmentObject var Trip: TripInfo
-    // Предположим, что у вас есть экземпляр TripData
+    @EnvironmentObject var trip: TripInfo
+    
     
     var body: some View {
         VStack{
             Text("Расписание")
                 .font(.headline)
-                .bold()
-                .foregroundColor(.black)
-            ScrollView {
-                NavigationView {
+            NavigationView {
+                ScrollView {
                     NavigationLink {
                         StationView()
                     } label: {
-                        if let firstStation = Trip.stations?.first {
+                        if let firstStation = trip.stations?[safe: 0] {
                             HStack {
-                                Text("Время: \(Trip.departure_time ?? "")")
+                                Text("Время: \(trip.departure_time ?? "")")
                                 Spacer()
                                 Text("Первая станция: \(firstStation)")
                             }
