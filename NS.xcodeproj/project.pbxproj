@@ -22,6 +22,8 @@
 		A5ABBBE92B106F2800572327 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBE82B106F2800572327 /* PersonView.swift */; };
 		A5ABBBEB2B106F3900572327 /* BusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBEA2B106F3900572327 /* BusView.swift */; };
 		A5ABBBED2B106F6700572327 /* QR-CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */; };
+		A5B836692B54FCBB000E59CB /* DecodeQRTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B836682B54FCBB000E59CB /* DecodeQRTicket.swift */; };
+		A5B8366B2B54FDD4000E59CB /* QRTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B8366A2B54FDD4000E59CB /* QRTicket.swift */; };
 		A5BADA5D2B2F0DD8001ED876 /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BADA5C2B2F0DD8001ED876 /* StationView.swift */; };
 		A5BB01472B0F824C00E3F601 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB01462B0F824C00E3F601 /* Login.swift */; };
 		A5BB01492B0F82A900E3F601 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BB01482B0F82A900E3F601 /* UserInfo.swift */; };
@@ -72,6 +74,8 @@
 		A5ABBBE82B106F2800572327 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		A5ABBBEA2B106F3900572327 /* BusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusView.swift; sourceTree = "<group>"; };
 		A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QR-CodeView.swift"; sourceTree = "<group>"; };
+		A5B836682B54FCBB000E59CB /* DecodeQRTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeQRTicket.swift; sourceTree = "<group>"; };
+		A5B8366A2B54FDD4000E59CB /* QRTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRTicket.swift; sourceTree = "<group>"; };
 		A5BADA5C2B2F0DD8001ED876 /* StationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
 		A5BB01462B0F824C00E3F601 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		A5BB01482B0F82A900E3F601 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				A5D6E3EE2B26C64D004B86E0 /* Driver.swift */,
 				A5D6E3F02B26C711004B86E0 /* Bus.swift */,
 				A58DDC1D2B232731005B9E58 /* Credentials.swift */,
+				A5B8366A2B54FDD4000E59CB /* QRTicket.swift */,
 			);
 			path = "Model NS";
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				A5ABBBEC2B106F6700572327 /* QR-CodeView.swift */,
 				A5ED92512B24BCBB002ED5CC /* CamerView.swift */,
 				A5D6E3FA2B282DFF004B86E0 /* QRScannerDelegate.swift */,
+				A5B836682B54FCBB000E59CB /* DecodeQRTicket.swift */,
 			);
 			path = QR;
 			sourceTree = "<group>";
@@ -374,6 +380,7 @@
 			files = (
 				A5D6E3F12B26C711004B86E0 /* Bus.swift in Sources */,
 				A5BB01492B0F82A900E3F601 /* UserInfo.swift in Sources */,
+				A5B836692B54FCBB000E59CB /* DecodeQRTicket.swift in Sources */,
 				A5D6E3FB2B282DFF004B86E0 /* QRScannerDelegate.swift in Sources */,
 				A5ABBBEB2B106F3900572327 /* BusView.swift in Sources */,
 				A5D6E3E92B26C017004B86E0 /* DailySchedule.swift in Sources */,
@@ -389,6 +396,7 @@
 				A5D6E3EF2B26C64D004B86E0 /* Driver.swift in Sources */,
 				A5ABBBE92B106F2800572327 /* PersonView.swift in Sources */,
 				A58DDC192B2299C8005B9E58 /* SHA256.swift in Sources */,
+				A5B8366B2B54FDD4000E59CB /* QRTicket.swift in Sources */,
 				A5ED92522B24BCBC002ED5CC /* CamerView.swift in Sources */,
 				A57195152B08D55500E4CB3F /* ContentView.swift in Sources */,
 				A5ABBBED2B106F6700572327 /* QR-CodeView.swift in Sources */,
@@ -481,7 +489,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -538,7 +546,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

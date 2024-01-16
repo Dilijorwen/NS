@@ -15,4 +15,3 @@ struct Ticket: Codable {
     let last_name: String
     let father_name: String
 }
-

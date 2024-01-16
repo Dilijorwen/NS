@@ -8,6 +8,8 @@ struct LogInView: View {
     @State private var isSecure: Bool = true
     @State private var loginErrorBool: Bool = false
     
+    @State private var userData: [DailySchedule] = []
+    
     private var isLoginButtonDisabled: Bool {
         login.isEmpty || password.isEmpty
     }
@@ -15,12 +17,11 @@ struct LogInView: View {
     
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var user: PersonInfo
-    @EnvironmentObject var trip: TripInfo
     
     
     var body: some View {
         if settings.isLoggedIn{
-            MainMenuView()
+            MainMenuView(userData: userData)
                 .environmentObject(settings)
         } else {
             ZStack{
@@ -91,17 +92,13 @@ struct LogInView: View {
                             Login(login: sha256(login), password: sha256(password)) { result in
                                 switch result {
                                 case .success(let loginResponse):
+                                    userData = loginResponse.daily_schedule
                                     settings.isLoggedIn = true
                                     user.first_name = loginResponse.first_name
                                     user.last_name = loginResponse.last_name
                                     user.bus_code = loginResponse.bus_code
                                     user.patronymic = loginResponse.patronymic
-                                    trip.trip_id = loginResponse.daily_schedule.first?.trip.id
-                                    trip.departure_time = loginResponse.daily_schedule.first?.trip.departure_time
-                                    trip.stations = loginResponse.daily_schedule.first?.trip.stations
-                                    trip.days = loginResponse.daily_schedule.first?.trip.days
                                     loginErrorBool = false
-                                    print(loginResponse)
                                 case .failure(let error):
                                     loginErrorBool = true
                                     print(error)

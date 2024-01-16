@@ -4,9 +4,11 @@ struct PersonView: View {
     
     @State private var login: String = ""
     @State private var password: String = ""
+    
     @EnvironmentObject var settings: UserSettings
     @EnvironmentObject var user: PersonInfo
-    @EnvironmentObject var trip: TripInfo
+    
+    @State private var userData: [DailySchedule] = []
     
     var body: some View {
         VStack{
@@ -79,14 +81,12 @@ struct PersonView: View {
                             Login(login: retrievedLogin, password: retrievedPassword) { result in
                                 switch result {
                                 case .success(let loginResponse):
+                                    userData = loginResponse.daily_schedule
                                     user.first_name = loginResponse.first_name
                                     user.last_name = loginResponse.last_name
                                     user.bus_code = loginResponse.bus_code
                                     user.patronymic = loginResponse.patronymic
-                                    trip.trip_id = loginResponse.daily_schedule.first?.trip.id
-                                    trip.departure_time = loginResponse.daily_schedule.first?.trip.departure_time
-                                    trip.stations = loginResponse.daily_schedule.first?.trip.stations
-                                    trip.days = loginResponse.daily_schedule.first?.trip.days
+                                    settings.isLoggedIn = true
                                 case .failure(let error):
                                     settings.isLoggedIn = false
                                     print(error)

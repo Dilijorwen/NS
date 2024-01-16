@@ -1,36 +1,26 @@
 import SwiftUI
 
 struct BusView: View {
-    @EnvironmentObject var trip: TripInfo
+    
+    let userData: [DailySchedule]
     
     
     var body: some View {
-        VStack{
-            Text("Расписание")
-                .font(.headline)
-            NavigationView {
-                ScrollView {
-                    NavigationLink {
-                        StationView()
-                    } label: {
-                        if let firstStation = trip.stations?[safe: 0] {
-                            HStack {
-                                Text("Время: \(trip.departure_time ?? "")")
-                                Spacer()
-                                Text("Первая станция: \(firstStation)")
-                            }
-                        } else {
-                            Text("Нет доступных станций")
-                                .multilineTextAlignment(.center)
+        NavigationView {
+            List {
+                ForEach(userData.indices, id: \.self) { index in
+                    NavigationLink(destination: StationView(userData: userData[index])) {
+                        VStack(alignment: .leading) {
+                            Text(userData[index].trip.stations.first ?? "")
+                                .font(.headline)
+                            Text(userData[index].trip.departure_time)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
                         }
                     }
-                    .padding()
-                    .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                    .frame(width: 341, alignment: .leading)
-                    .cornerRadius(30)
-                    .foregroundColor(.black.opacity(0.6))
                 }
             }
+            .navigationBarTitle("Расписание")
         }
     }
 }

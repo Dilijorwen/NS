@@ -2,10 +2,13 @@ import SwiftUI
 
 struct MainMenuView: View {
     
+    let userData: [DailySchedule]
+    
     @State private var selectedTab = 0
+    @EnvironmentObject var settings: Settings
+    
     
     var body: some View {
-        
         TabView(selection: $selectedTab) {
             PersonView()
                 .padding(.bottom, 50)
@@ -13,20 +16,20 @@ struct MainMenuView: View {
                     Image(systemName: "person")
                 }
                 .tag(0)
-
-            BusView()
+            
+            BusView(userData: userData)
                 .tabItem {
                     Image(systemName: "bus")
                 }
                 .tag(1)
-
-            QRCodeView()
-                .environmentObject(TripInfo())
+            
+            QRCodeView(userData: userData, settings: _settings)
                 .tabItem {
                     Image(systemName: "qrcode.viewfinder")
                 }
                 .tag(2)
-        }
+            
+        }.background(.white)
     }
 }
 

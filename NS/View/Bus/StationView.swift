@@ -1,37 +1,43 @@
 import SwiftUI
 
+class Settings: ObservableObject {
+    @Published var isTripStarted: Bool = false
+    @Published var selectedID = 0
+        
+}
+
 struct StationView: View {
-    @EnvironmentObject var trip: TripInfo
     
+    let userData: DailySchedule
+    
+    @EnvironmentObject var settings: Settings
+    
+    
+    @State private var showingAlert = false
     @State private var currentIndex = 0
-    @State private var idTrip = 0
+    
     
     private var isFirstStation: Bool {
         currentIndex == 0
     }
     
     private var isLastStation: Bool {
-        currentIndex == (trip.stations?.count ?? 0) - 2
+        currentIndex == (userData.trip.stations.count) - 2
     }
     
     var body: some View {
         VStack {
-            VStack(spacing: 20) {
-                if let stations = trip.stations {
-                    HStack {
-                        Text("Время: \(trip.departure_time ?? "")")
-                        Spacer()
-                        Text("Название первой станции: \(stations[currentIndex])")
-                    }
-                    Image(systemName: "arrow.down")
-                        .font(.title3)
-                    if currentIndex < stations.count - 1 {
-                        HStack {
-                            Text("Время: \(trip.departure_time ?? "")")
-                            Spacer()
-                            Text("Название следующей станции: \(stations[currentIndex + 1])")
-                        }
-                    }
+            VStack{
+                HStack{
+                    Text("Время: \(userData.trip.departure_time)")
+                    Spacer()
+                    Text("Станция: \(userData.trip.stations[currentIndex])")
+                }
+                Image(systemName: "arrow.down")
+                HStack{
+                    Text("Время: \(userData.trip.departure_time)")
+                    Spacer()
+                    Text("Станция: \(userData.trip.stations[currentIndex + 1])")
                 }
             }
             .padding()
@@ -69,20 +75,32 @@ struct StationView: View {
             Spacer()
             
             Button(action: {
-                trip.isTripStarted.toggle()
-                if trip.isTripStarted {
-
+                settings.selectedID = userData.id
+                if settings.isTripStarted {
+                    showingAlert = true
                 } else {
-                    
+                    settings.isTripStarted.toggle()
                 }
             }) {
-                Text(trip.isTripStarted ? "Закончить поездку" : "Начать поездку")
+                Text(settings.isTripStarted ? "Закончить поездку" : "Начать поездку")
                     .frame(width: 341, height: 54, alignment: .center)
                     .foregroundColor(.white)
-                    .background(Color(trip.isTripStarted ? .red : Color(red: 0.67, green: 0.9, blue: 0.59)))
+                    .background(Color(settings.isTripStarted ? .red : Color(red: 0.67, green: 0.9, blue: 0.59)))
                     .cornerRadius(30)
             }
             .padding(.bottom, 10)
+            .alert("Вы уверены, что хотите оменить поездку?", isPresented: $showingAlert){
+                
+                Button("Да"){
+                    settings.isTripStarted.toggle()
+                    /// Здесь отсылаю данные
+                }
+                
+                Button("Нет", role: .cancel) {
+                    
+                }
+                
+            }
         }
     }
 }

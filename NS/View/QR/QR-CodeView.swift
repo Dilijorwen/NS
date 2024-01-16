@@ -4,15 +4,21 @@ import AVKit
 struct QRCodeView: View {
     /// Всплывающи окно
     @State private var isShowingPopup = false
+    
     @State private var isShowingSuccessPopup = false
     @State private var isShowingDeniedPopup = false
+    @State var isShowingQRSuccessPopup = false
+    @State var isShowingQRDeniedPopup = false
     
+    @State var alertQRText = ""
     @State var alertText = ""
+
+    let userData: [DailySchedule]
     
-    @EnvironmentObject var trip: TripInfo
+    @EnvironmentObject var settings: Settings
     
     /// Данные для ручной проверки билетов
-    @State private var ticketId = ""
+    @State private var ticketID = ""
     @State private var flightNumber = ""
     @State private var seatNumber = ""
     @State private var timeStart = ""
@@ -52,20 +58,6 @@ struct QRCodeView: View {
                 
                 ZStack{
                     CamerView(frameSize: CGSize(width: 210, height: 210), session: $session)
-                        .popover(isPresented: $qrDelegate.isShowingQRSuccessPopup , arrowEdge: .top) {
-                            VStack {
-                                Text("\(qrDelegate.alertQRText)")
-                                    .font(.title3)
-                                    .foregroundColor(.black.opacity(0.8))
-                            }
-                        }
-                        .popover(isPresented: $qrDelegate.isShowingQRDeniedPopup, arrowEdge: .top) {
-                            VStack {
-                                Text("\(qrDelegate.alertQRText)")
-                                    .font(.title3)
-                                    .foregroundColor(.black.opacity(0.8))
-                            }
-                        }
                         .scaleEffect(0.97)
                     ForEach(0...4, id: \.self) { index in
                         let rotation = Double(index) * 90
@@ -136,7 +128,7 @@ struct QRCodeView: View {
                         .multilineTextAlignment(.center)
                     
                     VStack(alignment: .center, spacing: 25){
-                        TextField("ID Билета", text: $ticketId)
+                        TextField("ID Билета", text: $ticketID)
                             .padding(.horizontal, 48)
                             .frame(height: 54, alignment: .center)
                             .background(Color(red: 0.93, green: 0.93, blue: 0.93))
@@ -169,30 +161,32 @@ struct QRCodeView: View {
                     .padding()
                     
                     Button(action: {
-                        let verification = "\(ticketId) \(flightNumber) \(seatNumber)"
+                        let verification = "\(ticketID) \(flightNumber) \(seatNumber)"
                         let shaVerification = sha256(verification)
                         let substringShaVerification = String(shaVerification.prefix(6))
                         let substringCodeNumber = String(codeNumber.prefix(6))
-                        if trip.isTripStarted {
-                            if let tripID = trip.trip_id {
-                                if ticketId == String(tripID){
-                                    if substringShaVerification == substringCodeNumber {
-                                        isShowingSuccessPopup = true
-                                        isShowingDeniedPopup = false
-                                        alertText = "Успешно"
-                                    } else {
-                                        isShowingSuccessPopup = false
-                                        isShowingDeniedPopup = true
-                                        alertText = "Неверный билет"
-                                    }
+                        if settings.isTripStarted {
+                            let tripID = settings.selectedID
+                            if flightNumber == String(tripID){
+                                if substringShaVerification == substringCodeNumber {
+                                    isShowingSuccessPopup = true
+                                    isShowingDeniedPopup = false
+                                    alertText = "Успешно"
                                 } else {
-                                    alertText = "Билет не на этот рейс"
+                                    isShowingSuccessPopup = false
                                     isShowingDeniedPopup = true
+                                    alertText = "Неверный билет"
                                 }
+                            } else {
+                                alertText = "Билет не на этот рейс"
+                                isShowingSuccessPopup = false
+                                isShowingDeniedPopup = true
                             }
+                            
                         } else {
-                            alertText = "Вы не начали поездку"
                             isShowingDeniedPopup = true
+                            isShowingSuccessPopup = false
+                            alertText = "Вы не начали поездку"
                         }
                     }) {
                         Text("Проверить")
@@ -210,8 +204,6 @@ struct QRCodeView: View {
                                 .foregroundColor(.black.opacity(0.8))
                         }
                     }
-                    
-                    // Всплывающее окно для случая "Плохо"
                     .popover(isPresented: $isShowingDeniedPopup, arrowEdge: .top) {
                         VStack {
                             Text("\(alertText)")
@@ -247,9 +239,53 @@ struct QRCodeView: View {
         .onChange(of: qrDelegate.scannedCode) { oldValue, newValue in
             if let code = newValue {
                 scannedCode = code
+                do {
+                    let ticketData = try decodeTicketData(from: code)
+                    let verification = "\(ticketData.ticket_id) \(ticketData.flight_number) \(ticketData.seat_number)"
+                    let shaVerification = sha256(verification)
+                    if settings.isTripStarted {
+                        let tripID = settings.selectedID
+                        if ticketData.flight_number == tripID {
+                            if shaVerification == ticketData.code_number {
+                                isShowingQRSuccessPopup = true
+                                isShowingQRDeniedPopup = false // Показываем окно "Ура"
+                                alertQRText = "Успешно"
+                            } else {
+                                isShowingQRDeniedPopup = true
+                                isShowingQRSuccessPopup = false // Показываем окно "Плохо"
+                                alertQRText = "Неверный билет"
+                            }
+                        } else {
+                            print("tripID :\(tripID)", "ticketID :\(ticketData.ticket_id)")
+                            alertText = "Билет не на этот рейс"
+                            isShowingQRSuccessPopup = false
+                            isShowingQRDeniedPopup = true
+                        }
+                    } else {
+                        isShowingDeniedPopup = true
+                        isShowingSuccessPopup = false
+                        alertText = "Вы не начали поездку"
+                    }
+                } catch {
+                    print("Ошибка при декодировании JSON: \(error.localizedDescription)")
+                }
                 session.stopRunning()
                 deActiveScannerAnimation()
                 qrDelegate.scannedCode = nil
+            }
+        }
+        .popover(isPresented: $isShowingQRSuccessPopup , arrowEdge: .top) {
+            VStack {
+                Text("\(alertQRText)")
+                    .font(.title3)
+                    .foregroundColor(.black.opacity(0.8))
+            }
+        }
+        .popover(isPresented: $isShowingQRDeniedPopup, arrowEdge: .top) {
+            VStack {
+                Text("\(alertText)")
+                    .font(.title3)
+                    .foregroundColor(.black.opacity(0.8))
             }
         }
     }
