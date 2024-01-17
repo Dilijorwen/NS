@@ -41,3 +41,4 @@ QR-Сканер включает в себя сам скнер, так же кн
 - [Репозиторий Front-end](https://github.com/MsYarusa/SeverUg_frontend)
 - [Репозиторий Android(Kotlin)](https://github.com/IDrumo/North-South)
 - [Сайт](https://ylzaporozhskiy.ru/)
+- [Дизайн в Figma](https://www.figma.com/file/Qd1odMcGghZGG4NGTVKVFo/%D0%A5%D0%B5%D1%85%D0%B5?type=design&node-id=11954%3A2&mode=design&t=4y6XE2cm8AyK7qqW-1)
