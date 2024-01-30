@@ -12,10 +12,9 @@ struct QRCodeView: View {
     
     @State var alertQRText = ""
     @State var alertText = ""
-
-    let userData: [DailySchedule]
     
     @EnvironmentObject var settings: Settings
+    @EnvironmentObject var usedTicketID: UsedTicketID
     
     /// Данные для ручной проверки билетов
     @State private var ticketID = ""
@@ -120,82 +119,85 @@ struct QRCodeView: View {
                 
             }
             .popover(isPresented: $isShowingPopup, arrowEdge: .top) {
-                VStack {
-                    Text("Введите данные пользователя, чтобы проверить билет")
-                        .font(.title3)
-                        .foregroundColor(.black.opacity(0.8))
-                        .padding(.top, 30)
-                        .multilineTextAlignment(.center)
-                    
-                    VStack(alignment: .center, spacing: 25){
-                        TextField("ID Билета", text: $ticketID)
-                            .padding(.horizontal, 48)
-                            .frame(height: 54, alignment: .center)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                            .cornerRadius(30)
+                ScrollView{
+                    VStack {
+                        Text("Введите данные пользователя, чтобы проверить билет")
+                            .font(.title3)
+                            .foregroundColor(.black.opacity(0.8))
+                            .padding(.top, 30)
+                            .multilineTextAlignment(.center)
                         
-                        TextField("Номер рейса", text: $flightNumber)
-                            .padding(.horizontal, 48)
-                            .frame(height: 54, alignment: .center)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                            .cornerRadius(30)
+                        VStack(alignment: .center, spacing: 25){
+                            TextField("ID Билета", text: $ticketID)
+                                .padding(.horizontal, 48)
+                                .frame(height: 54, alignment: .center)
+                                .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                                .cornerRadius(30)
+                            
+                            TextField("Номер рейса", text: $flightNumber)
+                                .padding(.horizontal, 48)
+                                .frame(height: 54, alignment: .center)
+                                .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                                .cornerRadius(30)
+                            
+                            TextField("Номер места", text: $seatNumber)
+                                .padding(.horizontal, 48)
+                                .frame(height: 54, alignment: .center)
+                                .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                                .cornerRadius(30)
+                            
+                            TextField("Время начала рейса", text: $timeStart)
+                                .padding(.horizontal, 48)
+                                .frame(height: 54, alignment: .center)
+                                .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                                .cornerRadius(30)
+                            
+                            TextField("Код билета", text: $codeNumber)
+                                .padding(.horizontal, 48)
+                                .frame(height: 54, alignment: .center)
+                                .background(Color(red: 0.93, green: 0.93, blue: 0.93))
+                                .cornerRadius(30)
+                        }
+                        .padding()
                         
-                        TextField("Номер места", text: $seatNumber)
-                            .padding(.horizontal, 48)
-                            .frame(height: 54, alignment: .center)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                            .cornerRadius(30)
-                        
-                        TextField("Время начала рейса", text: $timeStart)
-                            .padding(.horizontal, 48)
-                            .frame(height: 54, alignment: .center)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                            .cornerRadius(30)
-                        
-                        TextField("Код билета", text: $codeNumber)
-                            .padding(.horizontal, 48)
-                            .frame(height: 54, alignment: .center)
-                            .background(Color(red: 0.93, green: 0.93, blue: 0.93))
-                            .cornerRadius(30)
-                    }
-                    .padding()
-                    
-                    Button(action: {
-                        let verification = "\(ticketID) \(flightNumber) \(seatNumber)"
-                        let shaVerification = sha256(verification)
-                        let substringShaVerification = String(shaVerification.prefix(6))
-                        let substringCodeNumber = String(codeNumber.prefix(6))
-                        if settings.isTripStarted {
-                            let tripID = settings.selectedID
-                            if flightNumber == String(tripID){
-                                if substringShaVerification == substringCodeNumber {
-                                    isShowingSuccessPopup = true
-                                    isShowingDeniedPopup = false
-                                    alertText = "Успешно"
+                        Button(action: {
+                            let verification = "\(ticketID) \(flightNumber) \(seatNumber)"
+                            let shaVerification = sha256(verification)
+                            let substringShaVerification = String(shaVerification.prefix(6))
+                            let substringCodeNumber = String(codeNumber.prefix(6))
+                            if settings.isTripStarted {
+                                let tripID = settings.selectedID
+                                if flightNumber == String(tripID){
+                                    if substringShaVerification == substringCodeNumber {
+                                        alertText = "Успешно"
+                                        isShowingSuccessPopup = true
+                                        isShowingDeniedPopup = false
+                                        usedTicketID.ticketID.append(Int(ticketID)!)
+                                    } else {
+                                        alertText = "Неверный билет"
+                                        isShowingSuccessPopup = false
+                                        isShowingDeniedPopup = true
+                                    }
                                 } else {
+                                    alertText = "Билет не на этот рейс"
                                     isShowingSuccessPopup = false
                                     isShowingDeniedPopup = true
-                                    alertText = "Неверный билет"
                                 }
+                                
                             } else {
-                                alertText = "Билет не на этот рейс"
-                                isShowingSuccessPopup = false
+                                alertText = "Вы не начали поездку"
                                 isShowingDeniedPopup = true
+                                isShowingSuccessPopup = false
                             }
+                        }) {
+                            Text("Проверить")
+                                .foregroundColor(.white)
+                                .frame(width: 265, height: 54, alignment: .center)
+                                .background(Color(red: 0.44, green: 0.5, blue: 0.55))
                             
-                        } else {
-                            isShowingDeniedPopup = true
-                            isShowingSuccessPopup = false
-                            alertText = "Вы не начали поездку"
+                                .cornerRadius(30)
+                            
                         }
-                    }) {
-                        Text("Проверить")
-                            .foregroundColor(.white)
-                            .frame(width: 265, height: 54, alignment: .center)
-                            .background(Color(red: 0.44, green: 0.5, blue: 0.55))
-                        
-                            .cornerRadius(30)
-                        
                     }
                     .popover(isPresented: $isShowingSuccessPopup , arrowEdge: .top) {
                         VStack {
@@ -247,24 +249,25 @@ struct QRCodeView: View {
                         let tripID = settings.selectedID
                         if ticketData.flight_number == tripID {
                             if shaVerification == ticketData.code_number {
-                                isShowingQRSuccessPopup = true
-                                isShowingQRDeniedPopup = false // Показываем окно "Ура"
                                 alertQRText = "Успешно"
+                                isShowingQRSuccessPopup = true
+                                isShowingQRDeniedPopup = false
+                                usedTicketID.ticketID.append(ticketData.ticket_id)
                             } else {
-                                isShowingQRDeniedPopup = true
-                                isShowingQRSuccessPopup = false // Показываем окно "Плохо"
                                 alertQRText = "Неверный билет"
+                                isShowingQRDeniedPopup = true
+                                isShowingQRSuccessPopup = false
                             }
                         } else {
-                            print("tripID :\(tripID)", "ticketID :\(ticketData.ticket_id)")
-                            alertText = "Билет не на этот рейс"
+                            alertQRText = "Билет не на этот рейс"
                             isShowingQRSuccessPopup = false
                             isShowingQRDeniedPopup = true
                         }
+                        
                     } else {
-                        isShowingDeniedPopup = true
-                        isShowingSuccessPopup = false
-                        alertText = "Вы не начали поездку"
+                        alertQRText = "Вы не начали поездку"
+                        isShowingQRDeniedPopup = true
+                        isShowingQRSuccessPopup = false
                     }
                 } catch {
                     print("Ошибка при декодировании JSON: \(error.localizedDescription)")
@@ -283,7 +286,7 @@ struct QRCodeView: View {
         }
         .popover(isPresented: $isShowingQRDeniedPopup, arrowEdge: .top) {
             VStack {
-                Text("\(alertText)")
+                Text("\(alertQRText)")
                     .font(.title3)
                     .foregroundColor(.black.opacity(0.8))
             }

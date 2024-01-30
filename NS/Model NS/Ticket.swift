@@ -13,5 +13,5 @@ struct Ticket: Codable {
     let is_visited: Bool
     let first_name: String
     let last_name: String
-    let father_name: String
+    let father_name: String?
 }

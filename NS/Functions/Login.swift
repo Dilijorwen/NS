@@ -3,18 +3,22 @@ import Security
 
 
 func Login(login: String, password: String, completion: @escaping (Result<UserInfo, Error>) -> Void) {
-    // Определение URL вашего API для входа
+
     let loginURL = URL(string: "https://api.spacekot.ru/apishechka/m/login")!
     
     // Создание запроса
     var request = URLRequest(url: loginURL)
     request.httpMethod = "POST"
     
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    let currentDate = dateFormatter.string(from: Date())
+    
     // Установка тела запроса с учетными данными пользователя
     let requestBody: [String: Any] = [
         "login": login,
         "password": password,
-        "date": "2024-01-18"
+        "date": currentDate
     ]
     
     do {
@@ -82,10 +86,3 @@ func Login(login: String, password: String, completion: @escaping (Result<UserIn
     }
     task.resume() // Запуск выполнения запроса.
 }
-
-//Эта строка создает задачу (task) с использованием URLSession для выполнения запроса на основе предоставленного URLRequest.
-//URLSession.shared: Это общий экземпляр URLSession, который предоставляется по умолчанию для работы с сетевыми запросами. .shared указывает на общий экземпляр URLSession, который может использоваться в приложении.
-//dataTask(with:completion:): Это метод URLSession, который создает задачу (dataTask), которая выполняет запрос по указанному URLRequest.
-//request: Это объект типа URLRequest, который представляет собой запрос, содержащий информацию о методе запроса (например, GET, POST), URL, заголовках, теле запроса и других деталях.
-//{ data, response, error in ... }: Это замыкание (closure) или обработчик завершения, который будет вызван после завершения выполнения задачи. В нем предоставляются три опциональных параметра: data содержит данные ответа от сервера, response содержит объект URLResponse, представляющий ответ сервера, а error содержит ошибку, если что-то пошло не так во время выполнения запроса.
-

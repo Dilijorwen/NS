@@ -5,10 +5,11 @@ struct LogInView: View {
     
     @State private var login = ""
     @State private var password = ""
+    
     @State private var isSecure: Bool = true
     @State private var loginErrorBool: Bool = false
     
-    @State private var userData: [DailySchedule] = []
+    @State private var schedule: [DailySchedule] = []
     
     private var isLoginButtonDisabled: Bool {
         login.isEmpty || password.isEmpty
@@ -21,7 +22,7 @@ struct LogInView: View {
     
     var body: some View {
         if settings.isLoggedIn{
-            MainMenuView(userData: userData)
+            MainMenuView(schedule: $schedule)
                 .environmentObject(settings)
         } else {
             ZStack{
@@ -92,13 +93,13 @@ struct LogInView: View {
                             Login(login: sha256(login), password: sha256(password)) { result in
                                 switch result {
                                 case .success(let loginResponse):
-                                    userData = loginResponse.daily_schedule
-                                    settings.isLoggedIn = true
+                                    schedule = loginResponse.daily_schedule
                                     user.first_name = loginResponse.first_name
                                     user.last_name = loginResponse.last_name
                                     user.bus_code = loginResponse.bus_code
                                     user.patronymic = loginResponse.patronymic
                                     loginErrorBool = false
+                                    settings.isLoggedIn = true
                                 case .failure(let error):
                                     loginErrorBool = true
                                     print(error)

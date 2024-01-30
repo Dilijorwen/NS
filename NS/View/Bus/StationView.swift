@@ -1,16 +1,11 @@
 import SwiftUI
 
-class Settings: ObservableObject {
-    @Published var isTripStarted: Bool = false
-    @Published var selectedID = 0
-        
-}
-
 struct StationView: View {
     
-    let userData: DailySchedule
+    let schedule: DailySchedule
     
     @EnvironmentObject var settings: Settings
+    @EnvironmentObject var usedTicketID: UsedTicketID
     
     
     @State private var showingAlert = false
@@ -22,22 +17,22 @@ struct StationView: View {
     }
     
     private var isLastStation: Bool {
-        currentIndex == (userData.trip.stations.count) - 2
+        currentIndex == (schedule.trip.stations.count) - 2
     }
     
     var body: some View {
         VStack {
             VStack{
                 HStack{
-                    Text("Время: \(userData.trip.departure_time)")
+                    Text("Время: \(schedule.trip.departure_time)")
                     Spacer()
-                    Text("Станция: \(userData.trip.stations[currentIndex])")
+                    Text("Станция: \(schedule.trip.stations[currentIndex])")
                 }
                 Image(systemName: "arrow.down")
                 HStack{
-                    Text("Время: \(userData.trip.departure_time)")
+                    Text("Время: \(schedule.trip.departure_time)")
                     Spacer()
-                    Text("Станция: \(userData.trip.stations[currentIndex + 1])")
+                    Text("Станция: \(schedule.trip.stations[currentIndex + 1])")
                 }
             }
             .padding()
@@ -75,7 +70,7 @@ struct StationView: View {
             Spacer()
             
             Button(action: {
-                settings.selectedID = userData.id
+                settings.selectedID = schedule.id
                 if settings.isTripStarted {
                     showingAlert = true
                 } else {
@@ -93,7 +88,7 @@ struct StationView: View {
                 
                 Button("Да"){
                     settings.isTripStarted.toggle()
-                    /// Здесь отсылаю данные
+                    sendAttendance(departure_id: schedule.id, tickets_id: usedTicketID.ticketID)
                 }
                 
                 Button("Нет", role: .cancel) {

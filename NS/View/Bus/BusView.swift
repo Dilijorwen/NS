@@ -2,18 +2,18 @@ import SwiftUI
 
 struct BusView: View {
     
-    let userData: [DailySchedule]
+    let schedule: [DailySchedule]
     
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(userData.indices, id: \.self) { index in
-                    NavigationLink(destination: StationView(userData: userData[index])) {
+                ForEach(schedule.indices, id: \.self) { index in
+                    NavigationLink(destination: StationView(schedule: schedule[index])) {
                         VStack(alignment: .leading) {
-                            Text(userData[index].trip.stations.first ?? "")
+                            Text(schedule[index].trip.stations.first ?? "")
                                 .font(.headline)
-                            Text(userData[index].trip.departure_time)
+                            Text(schedule[index].trip.departure_time)
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
                         }

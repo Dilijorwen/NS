@@ -10,6 +10,7 @@ struct NSApp: App {
                 .environmentObject(UserSettings())
                 .environmentObject(PersonInfo())
                 .environmentObject(Settings())
+                .environmentObject(UsedTicketID())
         }
     }
 }
