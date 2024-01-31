@@ -130,7 +130,7 @@
 			path = Functions;
 			sourceTree = "<group>";
 		};
-		A51E8E432B1B653000F54A0E /* Model NS */ = {
+		A51E8E432B1B653000F54A0E /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				A5BB01482B0F82A900E3F601 /* UserInfo.swift */,
@@ -142,7 +142,7 @@
 				A58DDC1D2B232731005B9E58 /* Credentials.swift */,
 				A5B8366A2B54FDD4000E59CB /* QRTicket.swift */,
 			);
-			path = "Model NS";
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A53C6A3D2B5FD0460094B2AF /* Classes */ = {
@@ -181,7 +181,7 @@
 			children = (
 				A57195122B08D55500E4CB3F /* NSApp.swift */,
 				A5D6E3F92B282D87004B86E0 /* View */,
-				A51E8E432B1B653000F54A0E /* Model NS */,
+				A51E8E432B1B653000F54A0E /* Model */,
 				A53C6A3D2B5FD0460094B2AF /* Classes */,
 				A50136F32B61070B005568B6 /* Functions */,
 				A57195162B08D55700E4CB3F /* Assets.xcassets */,

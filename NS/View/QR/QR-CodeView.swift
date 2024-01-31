@@ -10,8 +10,8 @@ struct QRCodeView: View {
     @State var isShowingQRSuccessPopup = false
     @State var isShowingQRDeniedPopup = false
     
-    @State var alertQRText = ""
-    @State var alertText = ""
+    @State var alertQRText = "Отсканируйте еще раз"
+    @State var alertText = "Нажмите проверку еще раз"
     
     @EnvironmentObject var settings: Settings
     @EnvironmentObject var usedTicketID: UsedTicketID
